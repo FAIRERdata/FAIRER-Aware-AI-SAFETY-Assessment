@@ -1,6 +1,6 @@
 # FAIRER-Aware-AI-SAFETY-Assessment
 
-A tool for assessment for AI safety of an AI application.
+A tool to assess the AI safety of an AI application
 
 SOURCES (built from and added to):
 
