@@ -9,6 +9,7 @@ SOURCES (built from and added to):
 <a href="https://www.usaid.gov/sites/default/files/2023-12/USAID Artificial Intelligence Ethics Checklist.pdf">Artificial Intelligence Ethics Checklist (usaid.gov) </a>
 
 [AI Checklist: Self-Assessment Tool | Document | U.S. Agency for International Development (usaid.gov)](https://www.usaid.gov/digital-development/ai-checklist)
+
 [NIST (2024). AI Risk Management Framework. National Institute of Standards and Technology](https://www.nist.gov/itl/ai-risk-management-framework)
 
 [1680adb4c6 (coe.int)](https://rm.coe.int/cdmsi-2023-014-guidelines-on-the-responsible-implementation-of-artific/1680adb4c6)
