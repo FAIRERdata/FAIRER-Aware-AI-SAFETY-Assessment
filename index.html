@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reproducibility Checklist</title>
+    <title>Artificial Intelligence Safety Checklist</title>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap via CDN -->
@@ -64,7 +64,7 @@
         }
 
         #print-button {
-            color: #C64CE1;
+            color: #1e3a79;
             background-color: white;
             font-size: 18px;
             padding: 10px 20px;
@@ -154,43 +154,43 @@
                 checklist38No.checked = false;
                 checklist38Partial.checked = false;
             }
-                // Clear and Check for Total Score
-                let totalScore = 0;
-                // Get the checklist division by ID
-                const checklist = document.getElementById("checklist-table");
+            // Clear and Check for Total Score
+            let totalScore = 0;
+            // Get the checklist division by ID
+            const checklist = document.getElementById("checklist-table");
 
-                // Find all radio buttons within the checklist division
-                const radioButtons = checklist.querySelectorAll('input[type="radio"]');
+            // Find all radio buttons within the checklist division
+            const radioButtons = checklist.querySelectorAll('input[type="radio"]');
 
-                // Loop through radio buttons
-                radioButtons.forEach(radioButton => {
-                    // Check if the radio button is checked
-                    if (radioButton.checked) {
-                        // Add the value of the checked radio button to the total score
-                        totalScore += parseInt(radioButton.value);
-                    }
-                });
-                // Update the total score or perform any other actions with it
-                $("#checklist-score").html("Your Data are " + Math.round((totalScore / 120) * 100) + "% Reproducible")
-            }
+            // Loop through radio buttons
+            radioButtons.forEach(radioButton => {
+                // Check if the radio button is checked
+                if (radioButton.checked) {
+                    // Add the value of the checked radio button to the total score
+                    totalScore += parseInt(radioButton.value);
+                }
+            });
+            // Update the total score or perform any other actions with it
+            $("#checklist-score").html("Your Data are " + Math.round((totalScore / 120) * 100) + "% Reproducible")
+        }
 
-            function write_to_modal(title, contents) {
-                $("#modal-title").html(title);
-                $("#modal-body").html(contents);
-            }
+        function write_to_modal(title, contents) {
+            $("#modal-title").html(title);
+            $("#modal-body").html(contents);
+        }
 
-            function show_modal(id_prefix) {
-                var title = document.getElementById(id_prefix + "-title").textContent;
-                var contents = document.getElementById(id_prefix + "-contents").innerHTML;
-                write_to_modal(title, contents);
-                $('#modal').modal('show');
-            }
+        function show_modal(id_prefix) {
+            var title = document.getElementById(id_prefix + "-title").textContent;
+            var contents = document.getElementById(id_prefix + "-contents").innerHTML;
+            write_to_modal(title, contents);
+            $('#modal').modal('show');
+        }
 
-            function print_page() {
-                document.getElementById("print-button").style.display = "none"
-                window.print();
-                document.getElementById("print-button").style.display = "block"
-            }
+        function print_page() {
+            document.getElementById("print-button").style.display = "none"
+            window.print();
+            document.getElementById("print-button").style.display = "block"
+        }
     </script>
 
     <div class="container">
@@ -211,44 +211,38 @@
             <div id="intro-box">
                 <br>
                 <p>
-                    This tool responds to the  <a 
-                    href="https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/2023-2026-data-strategy.html"
-                    target="_blank"> GC Data Strategy for the Federal Public Service (2023-2026) <i 
-                        class="fa fa-external-link"></i></a> Mission 3.3 for responsible, transparent and ethical data 
-                    stewardship to maintain trust, 
-                    <a 
-                    href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592"
-                    target="_blank">GC Directive on automated decision-making <i
-                        class="fa fa-external-link"></i></a>,
-                    <a 
-                    href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html"
-                    target="_blank">GC Algorithmic impact assessment tool <i
-                        class="fa fa-external-link"></i></a>, 
-                    <a
-                    href="https://www.nist.gov/itl/ai-risk-management-framework"
-                    target="_blank">NIST AI Risk Management Framework <i
-                        class="fa fa-external-link"></i></a>, and the
+                    This tool responds to the  <a
+                        href="https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/2023-2026-data-strategy.html"
+                        target="_blank"> GC Data Strategy for the Federal Public Service (2023-2026) <i
+                            class="fa fa-external-link"></i></a> Mission 3.3 for responsible, transparent and ethical
+                    data
+                    stewardship to maintain trust,
+                    <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592" target="_blank">GC Directive on
+                        automated decision-making <i class="fa fa-external-link"></i></a>,
+                    <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html"
+                        target="_blank">GC Algorithmic impact assessment tool <i class="fa fa-external-link"></i></a>,
+                    <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">NIST AI Risk
+                        Management Framework <i class="fa fa-external-link"></i></a>, and the
 
-                    <a
-                    href="https://www.gov.uk/government/publications/international-scientific-report-on-the-safety-of-advanced-ai"
-                    target="_blank">International Scientific Report on the Safety of Advanced AI. <i
-                        class="fa fa-external-link"></i></a>
+                    <a href="https://www.gov.uk/government/publications/international-scientific-report-on-the-safety-of-advanced-ai"
+                        target="_blank">International Scientific Report on the Safety of Advanced AI. <i
+                            class="fa fa-external-link"></i></a>
 
-                    This tool is suitable for a first screening level estimation of the reproducibility of a particular data asset and associated code.
+                    This tool is suitable for a first screening level estimation of the reproducibility of a particular
+                    data asset and associated code.
                 </p>
                 <p>
                     There are two companion tools which you may also find useful:
                 </p>
                 <ul>
                     <li>
-                        <a href="https://fairerdata.github.io/FAIRER-Aware-DATA-Assessment/"
-                            target="_blank"> FAIRER-Aware Data Assessment Tool <i
-                        class="fa fa-external-link"></i></a>
+                        <a href="https://fairerdata.github.io/FAIRER-Aware-DATA-Assessment/" target="_blank">
+                            FAIRER-Aware Data Assessment Tool <i class="fa fa-external-link"></i></a>
                     </li>
                     <li>
                         <a href="https://fairerdata.github.io/FAIRER-Aware-REPRODUCIBILITY-Assessment/"
                             target="_blank">FAIRER-Aware Reproducibility Checklist <i
-                        class="fa fa-external-link"></i></a>
+                                class="fa fa-external-link"></i></a>
                     </li>
                 </ul>
             </div> <br>
@@ -256,22 +250,22 @@
             <div id="intro-box">
                 <br>
                 <p>
-                    Do you work with Artificial Intelligence (AI)? Are you looking to make it future proof? 
+                    Do you work with Artificial Intelligence (AI)? Are you looking to make it future proof?
                     The <b>FAIRER data principles</b> will help you!
                 </p>
                 <p>
-                    This tool helps you to assess the AI safety level of an AI application and 
-                    get tips on how you could increase the AI safety. 
+                    This tool helps you to assess the AI safety level of an AI application and
+                    get tips on how you could increase the AI safety.
                 </p>
                 <p>
                     The tool is discipline-agnostic, making it relevant to any field.
                 </p>
                 <p>
-                    The checklist will take 15-30 minutes to complete, after which 
-                    you will receive a quantitative summary of the AI safety level your application, 
-                    and tips on how you can improve the level of AI safety. No information is saved on 
+                    The checklist will take 15-30 minutes to complete, after which
+                    you will receive a quantitative summary of the AI safety level your application,
+                    and tips on how you can improve the level of AI safety. No information is saved on
                     our servers, but you will be able to save the results of the assessment, including tips
-                     for improvement, to your local computer and add notes for future reference.
+                    for improvement, to your local computer and add notes for future reference.
                 </p>
                 <p>Version 0.1.0 alpha (2024-06-02)</p>
                 <p> <a href="https://www.niso.org/press-releases/contributor-roles-taxonomy-credit-formalized-ansiniso-standard"
@@ -283,19 +277,19 @@
             <div id="intro-box">
                 <p><b>ARTIFICIAL INTELLIGENCE (AI)</b></p>
                 <p>
-                    Artificial intelligence (AI) is the simulation of human intelligence processes 
-                    by computer systems. This includes learning, reasoning, problem-solving, 
-                    perception, human language understanding, and autonomous decision-making. 
-                    AI methods include rule-based expert systems, machine learning, deep learning, 
-                    neural networks, and natural language processing. 
+                    Artificial intelligence (AI) is the simulation of human intelligence processes
+                    by computer systems. This includes learning, reasoning, problem-solving,
+                    perception, human language understanding, and autonomous decision-making.
+                    AI methods include rule-based expert systems, machine learning, deep learning,
+                    neural networks, and natural language processing.
                 </p>
                 <p>
-                    Automation, per se, is not AI. Automation uses technology to perform tasks 
-                    with minimal human intervention, typically repetitive or rule-based processes. 
-                    Automation executes predefined, repetitive tasks efficiently. 
-                    It includes robotics, process automation, and algorithmic tasks without 
-                    the need for learning or adaptation. This checklist is not designed for 
-                    assessment of automation applications that do not use AI. 
+                    Automation, per se, is not AI. Automation uses technology to perform tasks
+                    with minimal human intervention, typically repetitive or rule-based processes.
+                    Automation executes predefined, repetitive tasks efficiently.
+                    It includes robotics, process automation, and algorithmic tasks without
+                    the need for learning or adaptation. This checklist is not designed for
+                    assessment of automation applications that do not use AI.
                 </p>
             </div><br>
 
@@ -308,18 +302,19 @@
         <table border="1" id="checklist-table">
             <thead>
                 <tr>
-                    <th colspan="2" style="background-color: white; color: black; font-weight: normal;"><b>ARTIFICIAL INTELLIGENCE (AI)</b> <br>
-                        Artificial intelligence (AI) is the simulation of human intelligence processes by 
-                        computer systems. This includes learning, reasoning, problem-solving, perception, human 
-                        language understanding, and autonomous decision-making. AI methods include rule-based expert 
-                        systems, machine learning, deep learning, neural networks, and natural language processing.  
+                    <th colspan="2" style="background-color: white; color: black; font-weight: normal;"><b>ARTIFICIAL
+                            INTELLIGENCE (AI)</b> <br>
+                        Artificial intelligence (AI) is the simulation of human intelligence processes by
+                        computer systems. This includes learning, reasoning, problem-solving, perception, human
+                        language understanding, and autonomous decision-making. AI methods include rule-based expert
+                        systems, machine learning, deep learning, neural networks, and natural language processing.
                         <br><br>
-                        Automation, per se, is not AI. Automation uses technology to perform tasks 
-                        with minimal human intervention, typically repetitive or rule-based processes. 
-                        Automation executes predefined, repetitive tasks efficiently. 
-                        It includes robotics, process automation, and algorithmic tasks without 
-                        the need for learning or adaptation. This checklist is not designed for 
-                        assessment of automation applications that do not use AI. 
+                        Automation, per se, is not AI. Automation uses technology to perform tasks
+                        with minimal human intervention, typically repetitive or rule-based processes.
+                        Automation executes predefined, repetitive tasks efficiently.
+                        It includes robotics, process automation, and algorithmic tasks without
+                        the need for learning or adaptation. This checklist is not designed for
+                        assessment of automation applications that do not use AI.
                     </th>
                 </tr>
             </thead>
@@ -331,7 +326,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1"> A data steward  </td>
+                    <td class="col1"> A data steward </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist1" value="2"
@@ -392,7 +387,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1">Administrative decision-making 
+                    <td class="col1">&nbsp; Administrative decision-making
                         <a data-toggle="modal" onclick="show_modal('admin_decision_making')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                         </a>
@@ -435,12 +430,14 @@
             </tbody>
             <thead>
                 <tr>
-                    <th colspan="2">For any theoretical claims, I provided a link to: </th>
+                    <th colspan="2">The practical use of this AI application is for: </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1">A clear statement of the claim. </td>
+                    <td class="col1">Art and creativity
+                        (e.g., generating art, music composition, style transfer).
+                    </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist9" value="2"
@@ -452,7 +449,9 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A complete proof of the claim.
+                        Autonomous vehicles
+                        (e.g., navigation, obstacle detection, and decision-making for self-driving cars).
+
                     </td>
                     <td class="col2">
                         <div></div>
@@ -465,7 +464,9 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A clear formal statement of all assumptions.
+                        Finance
+                        (e.g., fraud detection, algorithmic trading, credit scoring).
+
                     </td>
                     <td class="col2">
                         <div></div>
@@ -478,7 +479,9 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A clear formal statement of all restrictions.
+                        Healthcare
+                        (e.g., disease diagnosis, drug discovery, personalized medicine).
+
                     </td>
                     <td class="col2">
                         <div></div>
@@ -491,7 +494,10 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        Proofs of all novel claims.
+                        Image and video recognition
+                        (e.g., facial recognition, object detection, medical imaging analysis, identifying pedestrians
+                        and obstacles).
+
                     </td>
                     <td class="col2">
                         <div></div>
@@ -504,7 +510,9 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        Proof sketches or intuitions for complex and/or novel results.
+                        Natural Language Processing (NLP)
+                        (e.g., language translation, sentiment analysis, chatbot, virtual assistants).
+
                     </td>
                     <td class="col2">
                         <div></div>
@@ -517,7 +525,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        Appropriate citations to theoretical tools used are given.
+                        Other
                     </td>
                     <td class="col2">
                         <div></div>
@@ -528,41 +536,15 @@
                         <input type="radio" name="checklist15" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
-                <tr>
-                    <td class="col1">
-                        An empirical demonstration that all theoretical claims hold.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist16" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist16" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist16" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist16" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        All experimental code used to eliminate or disprove claims.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist17" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist17" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist17" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist17" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
             </tbody>
             <thead>
                 <tr>
-                    <th colspan="2">For all datasets used, I provided a link to: </th>
+                    <th colspan="2">This AI application complies with AI ethics principles with respect to: </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1">A downloadable version of the dataset or simulation environment. </td>
+                    <td class="col1">Bias </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist18" value="2"
@@ -574,7 +556,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The relevant statistics (e.g., the number of examples).
+                        Transparency
                     </td>
                     <td class="col2">
                         <div></div>
@@ -587,7 +569,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The details of train / validation / test splits.
+                        Privacy and security
                     </td>
                     <td class="col2">
                         <div></div>
@@ -600,7 +582,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        An explanation of any data that were excluded, and all pre-processing steps.
+                        Responsibility and accountability
                     </td>
                     <td class="col2">
                         <div></div>
@@ -613,8 +595,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A complete description of the data collection process for any new data collected, including
-                        instructions to annotators and methods for quality control.
+                        Data governance
                     </td>
                     <td class="col2">
                         <div></div>
@@ -627,7 +608,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A motivation statement for why the experiments are conducted on the selected datasets.
+                        Human oversight
                     </td>
                     <td class="col2">
                         <div></div>
@@ -640,7 +621,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A licence that allows free usage of the datasets for research purposes.
+                        I don’t know
                     </td>
                     <td class="col2">
                         <div></div>
@@ -651,71 +632,18 @@
                         <input type="radio" name="checklist24" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
-                <tr>
-                    <td class="col1">
-                        All datasets drawn from the existing literature (potentially including authors’ own
-                        previously published work) are publicly available.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist25" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist25" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist25" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist25" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A detailed explanation, where applicable, as to why datasets used are not publicly
-                        available, and why publicly available alternatives were not used.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist26" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist26" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist26" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist26" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A complete description of the data collection process (e.g., expt’l setup, device(s) used,
-                        image acquisition parameters, subjects/objects involved, instructions to annotators, and
-                        qa/qc methods.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist27" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist27" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist27" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist27" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Ethics approval.
-                    </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist28" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist28" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist28" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist28" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
+
             </tbody>
             <thead>
                 <tr>
-                    <th colspan="2">For all code used, I provided a link to: </th>
+                    <th colspan="2">Designated humans have the ultimate responsibility for all
+                        decisions and outcomes from this AI application: </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1">The specification of dependencies. </td>
+                    <td class="col1">Responsibilities are explicitly defined between the AI
+                        system and human(s), and how they are shared. </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist29" value="2"
@@ -727,7 +655,8 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The training code.
+                        Human responsibility will be preserved for final decisions that affect a
+                        person’s life, quality of life, health, or reputation.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -740,7 +669,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The evaluation code.
+                        Humans are always able to monitor, control, and deactivate systems.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -753,7 +682,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The (pre-)trained model(s).
+                        Significant decisions made by the AI system are explained.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -766,8 +695,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A ReadMe file that includes a table of results accompanied by precise command to run to
-                        produce those results. </td>
+                        Significant decisions made by the AI system are able to be overridden.</td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist33" value="2"
@@ -779,7 +707,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        Any code required for pre-processing data. </td>
+                        Significant decisions made by the AI system are appealable. </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist34" value="2"
@@ -791,7 +719,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        All source code required for conducting and analyzing the experiment(s). </td>
+                        Significant decisions made by the AI system are reversible. </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist35" value="2"
@@ -801,160 +729,17 @@
                         <input type="radio" name="checklist35" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
-                <tr>
-                    <td class="col1">
-                        A licence that allows free usage of the code for research purposes. </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist36" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist36" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist36" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist36" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A document with comments detailing the implementation of new methods, with references to the
-                        paper where each step comes from. </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist37" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist37" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist37" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist37" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        The method used for setting seeds (if an algorithm depends on randomness) described in a way
-                        sufficient to allow replication of results. </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist38" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist38" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist38" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist38" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A description of the computing infrastructure used (hardware and software), including
-                        GPU/CPU models; memory; OS; names/versions of software libraries and frameworks. </td>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist39" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist39" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist39" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist39" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A formal description of evaluation metrics used and and explanation of the motivation for
-                        choosing these metrics.
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist40" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist40" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist40" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist40" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A statement of the number of algorithm runs used to compute each reported result. <div>
-                        </div>
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist41" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist41" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist41" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist41" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        An analysis of experiments that goes beyond single-dimensional summaries of performance
-                        (e.g., average; median) to include measures of variation, confidence, or other
-                        distributional information.
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist42" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist42" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist42" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist42" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A description of the significance of any improvement or decrease in performance, judged
-                        using appropriate statistical tests (e.g., Wilcoxon signed-rank).
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist43" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist43" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist43" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist43" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A list of all final (hyper-)parameters used for each model/algorithm in the for each of the
-                        experiments.
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist44" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist44" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist44" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist44" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A statement of the number and range of values tried per (hyper-) parameter during
-                        development, along with the criterion used for selecting the final parameter setting.
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist45" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist45" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist45" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist45" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        A ReadMe file with a table of results accompanied by precise commands to produce those
-                        results
-                    <td class="col2">
-                        <div></div>
-                        <input type="radio" name="checklist46" value="2"
-                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist46" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist46" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist46" value="2" onclick="update_checklist()">N/A
-                    </td>
-                </tr>
             </tbody>
             <thead>
                 <tr>
-                    <th colspan="2">For all reported experimental results, I provided a link to: </th>
+                    <th colspan="2">The design and use of this AI application embodies transparency engenders trust:
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="col1">The range of hyper-parameters considered, method to select the best
-                        hyper-parameter configuration, and specification of all hyper-parameters used to generate
-                        results. </td>
+                    <td class="col1"> The purpose, limitations, and biases of the AI system are explained in plain
+                        language. </td>
                     <td class="col2">
                         <div></div>
                         <input type="radio" name="checklist47" value="2"
@@ -966,7 +751,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The exact number of training and evaluation runs.
+                        Data sources have unambiguous respected sources, and biases are known and explicitly stated.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -979,7 +764,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A clear definition of the specific measure or statistics used to report results.
+                        Algorithms and models are appropriate and verifiable.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -992,7 +777,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of results with central tendency (e.g. mean) & variation (e.g. error bars).
+                        Confidence and context are presented for humans to base decisions on.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1005,7 +790,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        The average runtime for each result, or estimated energy cost.
+                        Transparent justification for recommendations and outcomes are provided.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1018,7 +803,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of the computing infrastructure used.
+                        Straightforward and interpretable monitoring systems are provided.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1031,8 +816,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A document that clearly delineates statements that are opinions, hypothesis, and speculation
-                        from objective facts and results.
+                        Humans can easily discern when they are interacting with the AI system vs. a human.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1045,9 +829,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of the range of hyper-parameters considered, method to select the best
-                        hyper-parameter configuration, and specification of all hyper-parameters used to generate
-                        results.
+                        Humans can easily discern when and why the AI system is taking action and/or making decisions.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1060,7 +842,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        Information on sensitivity regarding parameter changes.
+                        Improvements are made regularly to meet human needs and technical standards.
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1071,97 +853,737 @@
                         <input type="radio" name="checklist55" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
+            </tbody>
+
+            <thead>
                 <tr>
-                    <td class="col1">
-                        Details on how baseline methods were implemented and tuned.
-                    </td>
+                    <th colspan="2">The data used in this AI application are available: </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">Raw dataset(s) are openly available. </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist56" value="2"
+                        <input type="radio" name="checklist47" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist56" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist56" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist56" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        A clear definition of the specific evaluation metrics and/or statistics used to report
-                        results.
+                        AI generated dataset(s) are openly available
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist57" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist57" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist57" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist57" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th colspan="2">The method used for this AI application is: </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1"><b>Rule-based expert system</b><br> It relies on predefined rules and logical
+                        statements created by experts (usually with if-then statements) to make
+                        decisions and perform tasks. It is deterministic: (i.e. produces the same output for a given
+                        input), and is effective
+                        for well-defined problems with clear rules.</td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of results with central tendency (e.g. mean) and variation (e.g. error bars).
+                        <b>Machine Learning</b><br>
+                        It focuses on developing algorithms that allow computers to learn from and make predictions or
+                        decisions based on data
+                        (e.g., supervised learning, unsupervised learning, reinforcement learning).
+
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist58" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist58" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist58" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist58" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        <b>Deep Learning</b><br>
+                        It uses neural networks with many layers (deep neural networks) to analyze complex patterns in
+                        large datasets (e.g.,
+                        Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), Generative Adversarial
+                        Networks (GANs)).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        An analysis of statistical significance of reported differences in performance between
-                        methods.
+                        <b>Computer Vision</b><br>
+                        It enables computers to interpret and understand the visual world. By using digital images from
+                        cameras, videos, and
+                        deep learning models to identify and process objects, environments, and actions.
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist59" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist59" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist59" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist59" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        <b>Generative AI</b><br>
+                        It creates new content (e.g., art, images, text, stories, music, synthetic data, or computer
+                        code) by learning from
+                        existing data.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of the average runtime for each result, or estimated energy cost.
+                        I don’t know if this application is AI or not.
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist60" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist60" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist60" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist60" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        This AI application uses tools and methods that are inherently designed for AI tasks to build,
+                        train, and deploy AI models:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        AI Development and Deployment Platforms
+                        (e.g., Google Vertex AI Platform, Amazon SageMaker, Microsoft Azure Machine Learning, IBM
+                        Watson)
+
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        A description of the memory footprint.
+                        AI Frameworks for Edge and Mobile
+                        (e.g., TensorFlow Lite, Core ML)
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist61" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist61" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist61" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist61" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        AI Research and Experimentation Platforms
+                        (e.g., Google Colab)
+
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
                 <tr>
                     <td class="col1">
-                        An analysis of situations in which the method failed.
+                        AI-Specific Hardware
+                        (e.g., NVIDIA GPUs, TPUs)
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist62" value="2"
+                        <input type="radio" name="checklist48" value="2"
                             onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="checklist62" value="0" onclick="update_checklist()">No <br>&#10;
-                        <input type="radio" name="checklist62" value="1" onclick="update_checklist()">Partial&nbsp;
-                        <input type="radio" name="checklist62" value="2" onclick="update_checklist()">N/A
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        Automated Machine Learning (AutoML)
+                        (e.g., H2O.ai, Google Cloud AutoML, DataRobot)
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Computer Vision Libraries
+                        (e.g., OpenCV, Detectron2, YOLO)
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Deep Learning Libraries
+                        (e.g., Keras, Theano, pytensor, MXNet)
+
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Machine Learning Frameworks
+                        (e.g., TensorFlow, PyTorch, Scikit-learn)
+
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Natural Language Processing (NLP) Tools
+                        (e.g., spaCy, NLTK, BERT, GPT, R tm, R textTinyR)
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Reinforcement Learning Libraries
+                        (e.g., OpenAI Gym, OpenAI Gymnasium, Stable-Baselines3)
+
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Simple AI tasks
+                        (e.g., Excel Insights, Power Query)
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Recommendation System
+                        (e.g., personalized content delivery in streaming service, e-commerce, social media).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Robotics
+                        (e.g., robot vision, manipulation, interaction).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Speech recognition
+                        (e.g., Voice-controlled device, transcription service, virtual assistant, language translator).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Other
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        I don’t know
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        The capability vs. limitation of this AI application is:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        Knowledge – Inconsistency
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Creativity – Hallucination
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        Common sense reasoning – Causality
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Formal reasoning – Compositionality
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col1">
+                        Forecasting – Novel concepts
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Simulation – Embodiment
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        I don’t know
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist48" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist48" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist48" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist48" value="2" onclick="update_checklist()">N/A
+                    </td>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        This AI application complies with FAIRER principles as described by the FAIRER-Aware
+                        Data Assessment Tool:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        Yes / No / Partially / I don’t know
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        I have completed FAIRER-Aware Reproducibility Checklist and the score was:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        0-25%
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        26-50%
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        51-75%
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        76%-100%
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Not completed
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        This AI application has been tested for model performance using:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        Benchmark measurements.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Manually generated adversarial attack.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Automatically generated adversarial attack.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Red teaming (a set of people who aim to find vulnerabilities in the system by attacking it).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        Auditing
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        I don’t know/or not tested.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        I have completed an Algorithmic Impact Assessment and the score was:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col1">
+                        0-25% (level I, Little to no impact).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        26-50% (Level II, moderate impact).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        51-75% (Level III, high impact).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        76%-100% (Level IV, very high impact).
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        I don’t know/or not tested.
+                    </td>
+                    <td class="col2">
+                        <div></div>
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
+                        <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
+                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
                     </td>
                 </tr>
             </tbody>
@@ -1190,25 +1612,25 @@
         </div>
 
         <script>
-                // Function to adjust the height of the textarea based on content
-                function adjustTextareaHeight(textarea) {
-                    textarea.style.height = 'auto'; // Reset the height to auto
-                    textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scroll height
-                }
+            // Function to adjust the height of the textarea based on content
+            function adjustTextareaHeight(textarea) {
+                textarea.style.height = 'auto'; // Reset the height to auto
+                textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scroll height
+            }
 
-                // Get the textarea element
-                var textarea = document.getElementById('nq1');
+            // Get the textarea element
+            var textarea = document.getElementById('nq1');
 
-                // Adjust the height initially
-                adjustTextareaHeight(textarea);
+            // Adjust the height initially
+            adjustTextareaHeight(textarea);
 
-                // Attach input event listener to adjust height dynamically
-                textarea.addEventListener('input', function () {
-                    adjustTextareaHeight(this);
-                });
+            // Attach input event listener to adjust height dynamically
+            textarea.addEventListener('input', function () {
+                adjustTextareaHeight(this);
+            });
         </script>
 
-        <div id="checklist-score"> Your Data are 0% Reproducible </div>
+        <div id="checklist-score"> Your Application is 0% Safe </div>
         <br>
         <div class="row">
             <div class="col-md-12" align="center">
@@ -1355,28 +1777,24 @@
                 </p>
                 <p>
                     SOURCES (built upon and added to): <br>
-                    <a
-                        href="https://aaai.org/conference/aaai/aaai-23/reproducibility-checklist/"
-                        target="_blank">Reproducibility Checklist – Association for the Advancement of Artificial Intelligence<i
-                            class="fa fa-external-link"></i></a>
+                    <a href="https://aaai.org/conference/aaai/aaai-23/reproducibility-checklist/"
+                        target="_blank">Reproducibility Checklist – Association for the Advancement of Artificial
+                        Intelligence<i class="fa fa-external-link"></i></a>
                     <br>
-                    <a
-                        href="https://cs.uwaterloo.ca/~brecht/courses/Perf-Eval-Shared/readings/f20/AI-reproducibility-2020.pdf"
+                    <a href="https://cs.uwaterloo.ca/~brecht/courses/Perf-Eval-Shared/readings/f20/AI-reproducibility-2020.pdf"
                         target="_blank">AI-reproducibility-2020.pdf (McGill University and University of Waterloo)<i
                             class="fa fa-external-link"></i></a>
                     <br>
-                    <a
-                        href="https://miccai2023-reproducibility-tutorial.github.io/materials/2023.10.08_MICCAI_2023_Repro_Tuto.pdf"
-                        target="_blank">MICCAI_2023_Repro_Tuto.pdf<i
-                            class="fa fa-external-link"></i></a>
-                </p> 
+                    <a href="https://miccai2023-reproducibility-tutorial.github.io/materials/2023.10.08_MICCAI_2023_Repro_Tuto.pdf"
+                        target="_blank">MICCAI_2023_Repro_Tuto.pdf<i class="fa fa-external-link"></i></a>
+                </p>
             </div>
         </div>
         <div id="admin_decision_making">
             <div id="admin_decision_making-title"></div>
             <div id="admin_decision_making-contents">
                 <p>Examples:</p>
-                <ul> 
+                <ul>
                     <li>
                         Alert systems
                     <li>Budget management </li>
@@ -1406,14 +1824,14 @@
                         Forecasting and resource allocation
                     </li>
 
-                     Government benefits, 
-                        Healthcare administration, HR management, Immigration, Inventory management, 
-                        Logistics planning, Monitoring compliance, Permit approvals, Policy formulation, 
-                        Project prioritization, Regulatory compliance, Regulatory investigations, 
-                        Scenario analysis, Supply chain management
+                    Government benefits,
+                    Healthcare administration, HR management, Immigration, Inventory management,
+                    Logistics planning, Monitoring compliance, Permit approvals, Policy formulation,
+                    Project prioritization, Regulatory compliance, Regulatory investigations,
+                    Scenario analysis, Supply chain management
                     </li>
 
-                   
+
                 </ul>
             </div>
         </div>
