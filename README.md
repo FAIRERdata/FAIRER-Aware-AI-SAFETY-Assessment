@@ -6,7 +6,7 @@ SOURCES (built from and added to):
 
 [Algorithmic Impact Assessment tool - Canada.ca](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html)
 
-<a href="https://www.usaid.gov/sites/default/files/2023-12/USAID Artificial Intelligence Ethics Checklist.pdf" target="_blank">Artificial Intelligence Ethics Checklist (usaid.gov) </a>
+<a href="https://www.usaid.gov/sites/default/files/2023-12/USAID Artificial Intelligence Ethics Checklist.pdf">Artificial Intelligence Ethics Checklist (usaid.gov) </a>
 
 [AI Checklist: Self-Assessment Tool | Document | U.S. Agency for International Development (usaid.gov)](https://www.usaid.gov/digital-development/ai-checklist)
 [NIST (2024). AI Risk Management Framework. National Institute of Standards and Technology](https://www.nist.gov/itl/ai-risk-management-framework)
