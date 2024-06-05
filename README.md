@@ -2,7 +2,7 @@
 
 A tool to assess the AI safety of an AI application
 
-SOURCES (built from and added to):
+REFERENCES:
 
 [Algorithmic Impact Assessment tool - Canada.ca](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html)
 
