@@ -17,7 +17,7 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Assessment favicon -->
-    <link rel="shortcut icon" href="images/icons/AI.png">
+    <link rel="shortcut icon" href="images/icons/AI2.png">
 
     <style>
         .col1 {
@@ -50,9 +50,15 @@
             height: 10vh;
         }
 
+        .hyper-content {
+            color: rgb(222, 222, 222);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
         th {
             color: white;
-            background-color: #a768a7;
+            background-color: #5CC468;
             padding-top: 5px;
             padding-bottom: 5px;
             padding-left: 5px;
@@ -60,11 +66,11 @@
         }
 
         td {
-            padding-left: 5px
+            padding-left: 5px;
         }
 
         #print-button {
-            color: #1e3a79;
+            color: #5CC468;
             background-color: white;
             font-size: 18px;
             padding: 10px 20px;
@@ -93,7 +99,7 @@
         #intro-box,
         #comment-box {
             border-style: solid;
-            border-color: #1e3a79;
+            border-color: #5CC468;
             border-radius: 15px;
             padding-left: 15px;
             padding-bottom: 10px;
@@ -103,6 +109,7 @@
         #comment-box li {
             padding-right: 18px;
         }
+
 
         @media (min-width: 768px) {
             #logos img {
@@ -1003,9 +1010,15 @@
                 <tr>
                     <td class="col1">
                         AI Development and Deployment Platforms
-                        (e.g., Google Vertex AI Platform, Amazon SageMaker, Microsoft Azure Machine Learning, IBM
-                        Watson)
-
+                        (e.g.,
+                        <a href="https://console.cloud.google.com/marketplace/product/google-cloud-platform/cloud-machine-learning-engine"
+                            target="_blank"> Google Vertex AI Platform</a>,
+                        <a href="https://www.google.com/search?q=Amazon+SageMaker&oq=Amazon+SageMaker&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDEyMDVqMGoxqAIAsAIB&sourceid=chrome&ie=UTF-8&safe=active&ssui=on"
+                            target="_blank"> Amazon SageMaker</a>,
+                        <a href="https://azure.microsoft.com/en-ca/free/machine-learning/search/?ef_id=_k_Cj0KCQjwsPCyBhD4ARIsAPaaRf26MwbyNxGtFg1ej1lXanjuY58KYhgrTHz5LalDIkGLg7SoY_7WtvQaAkB1EALw_wcB_k_&OCID=AIDcmmqz3gd78m_SEM__k_Cj0KCQjwsPCyBhD4ARIsAPaaRf26MwbyNxGtFg1ej1lXanjuY58KYhgrTHz5LalDIkGLg7SoY_7WtvQaAkB1EALw_wcB_k_&gad_source=1&gclid=Cj0KCQjwsPCyBhD4ARIsAPaaRf26MwbyNxGtFg1ej1lXanjuY58KYhgrTHz5LalDIkGLg7SoY_7WtvQaAkB1EALw_wcB"
+                            target="_blank"> Microsoft Azure Machine Learning</a>,
+                        <a href="https://www.ibm.com/watson?utm_content=SRCWW&p1=Search&p4=43700074359379220&p5=e&p9=58700008185854226&gclid=Cj0KCQjwsPCyBhD4ARIsAPaaRf2ra11iD-JNaH3WKH6-xgABpZaG8lAMU58gk1OQ2puI1JG8_AfTZjYaAiqOEALw_wcB&gclsrc=aw.ds"
+                            target="_blank"> IBM Watson</a>)
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1019,7 +1032,11 @@
                 <tr>
                     <td class="col1">
                         AI Frameworks for Edge and Mobile
-                        (e.g., TensorFlow Lite, Core ML)
+                        (e.g.,
+                        <a href="https://www.tensorflow.org/lite"
+                            target="_blank"> TensorFlow Lite</a>,
+                        <a href="https://developer.apple.com/documentation/coreml"
+                            target="_blank"> Core ML</a> )
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1034,8 +1051,8 @@
                 <tr>
                     <td class="col1">
                         AI Research and Experimentation Platforms
-                        (e.g., Google Colab)
-
+                        (e.g., 
+                        <a href="https://colab.research.google.com/" target="_blank">Google Colab</a> )
                     </td>
                     <td class="col2">
                         <div></div>
@@ -1335,8 +1352,10 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        This AI application complies with FAIRER principles as described by the FAIRER-Aware
-                        Data Assessment Tool:
+                        This AI application complies with FAIRER principles as described by the
+                        <a class="hyper-content" href="https://fairerdata.github.io/FAIRER-Aware-DATA-Assessment/"
+                            target="_blank">FAIRER-Aware
+                            Data Assessment Tool </a>
                     </th>
                 </tr>
             </thead>
@@ -1358,7 +1377,12 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        I have completed FAIRER-Aware Reproducibility Checklist and the score was:
+                        I have completed
+                        <a class="hyper-content"
+                            href="https://fairerdata.github.io/FAIRER-Aware-REPRODUCIBILITY-Assessment/"
+                            target="_blank">
+                            FAIRER-Aware Reproducibility Checklist </a>
+                        and the score was:
                     </th>
                 </tr>
             </thead>
@@ -1519,7 +1543,12 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        I have completed an Algorithmic Impact Assessment and the score was:
+                        I have completed an
+                        <a class="hyper-content"
+                            href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html"
+                            target="_blank"> Algorithmic Impact Assessment </a>
+
+                        and the score was:
                     </th>
                 </tr>
             </thead>
@@ -1556,7 +1585,8 @@
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
                         <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
                         <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
@@ -1568,7 +1598,8 @@
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
                         <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
                         <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
@@ -1580,7 +1611,8 @@
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="radio" name="checklist47" value="2" onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="checklist47" value="2"
+                            onclick="update_checklist()">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="checklist47" value="0" onclick="update_checklist()">No <br>&#10;
                         <input type="radio" name="checklist47" value="1" onclick="update_checklist()">Partial&nbsp;
                         <input type="radio" name="checklist47" value="2" onclick="update_checklist()">N/A
@@ -1594,6 +1626,7 @@
         <!-- ========================== -->
         <label for="username"><br>Enter your name (optional for printing):</label>
         <input type="text" id="username">
+        <br><br>
         <div id="comment-box" class="col-md-12">
             <h3>Your Notes <i class="far fa-hand-point-left" aria-hidden="true"></i></h3>
             <div class="row">
@@ -1755,15 +1788,15 @@
             <div id="citation-title">Author Statement</div>
             <div id="citation-contents">
                 <p style="margin-left: 25px;">
-                    <a href="https://orcid.org/0009-0008-2060-8204">Esther Liu <img alt="ORCID logo"
+                    <a href="https://orcid.org/0009-0001-8417-0837" target="_blank">Emily Chu <img alt="ORCID logo"
                             src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
                             height="16" /></a> (Data curation, Software, Visualization) ; <br>
-                    <a href="https://orcid.org/0000-0002-7349-6970">Dominique Charles <img alt="ORCID logo"
-                            src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
-                            height="16" /></a> (Data curation, Validation) ; and,<br>
-                    <a href="https://orcid.org/0000-0001-9138-5986">Claire C. Austin <img alt="ORCID logo"
-                            src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
-                            height="16" /></a> (Conceptualization, Supervision, Writing).<br>
+                    <a href="https://orcid.org/0000-0002-7349-6970" target="_blank">Dominique Charles <img
+                            alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"
+                            width="16" height="16" /></a> (Data curation, Validation) ; and,<br>
+                    <a href="https://orcid.org/0000-0001-9138-5986" target="_blank">Claire C. Austin <img
+                            alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"
+                            width="16" height="16" /></a> (Conceptualization, Supervision, Writing).<br>
                 </p>
                 <p style="margin-left: 25px;">All authors reviewed, discussed, and agreed to all aspects of the final
                     work.</p>
@@ -1773,20 +1806,57 @@
                     organization.
                 </p>
                 <p>
-                    Cite as: Liu E, Charles D, and Austin CC (2024). FAIRER Aware Reproducibility Checklist.
+                    Cite as: Chu E, Charles D, and Austin CC (2024). FAIRER Aware AI Safety Checklist. https://fairerdata.github.io/FAIRER-Aware-AI-SAFETY-Assessment/
                 </p>
                 <p>
-                    SOURCES (built upon and added to): <br>
-                    <a href="https://aaai.org/conference/aaai/aaai-23/reproducibility-checklist/"
-                        target="_blank">Reproducibility Checklist – Association for the Advancement of Artificial
-                        Intelligence<i class="fa fa-external-link"></i></a>
+                    References: <br>
+                    <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html"
+                        target="_blank">Algorithmic Impact Assessment tool - Canada.ca &nbsp;
+                        <i class="fa fa-external-link"></i></a>
                     <br>
-                    <a href="https://cs.uwaterloo.ca/~brecht/courses/Perf-Eval-Shared/readings/f20/AI-reproducibility-2020.pdf"
-                        target="_blank">AI-reproducibility-2020.pdf (McGill University and University of Waterloo)<i
+                    <a href="https://www.usaid.gov/sites/default/files/2023-12/USAID Artificial Intelligence Ethics Checklist.pdf"
+                        target="_blank">Artificial Intelligence Ethics Checklist (usaid.gov) &nbsp; <i
                             class="fa fa-external-link"></i></a>
                     <br>
-                    <a href="https://miccai2023-reproducibility-tutorial.github.io/materials/2023.10.08_MICCAI_2023_Repro_Tuto.pdf"
-                        target="_blank">MICCAI_2023_Repro_Tuto.pdf<i class="fa fa-external-link"></i></a>
+                    <a href="https://www.usaid.gov/digital-development/ai-checklist" target="_blank">AI Checklist:
+                        Self-Assessment Tool | Document | U.S. Agency for International Development (usaid.gov) &nbsp;<i
+                            class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">NIST (2024). AI Risk
+                        Management Framework. National Institute of Standards and Technology
+                        &nbsp;<i class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://rm.coe.int/cdmsi-2023-014-guidelines-on-the-responsible-implementation-of-artific/1680adb4c6"
+                        target="_blank">1680adb4c6 (coe.int) &nbsp; <i class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://insights.sei.cmu.edu/documents/2562/2019_010_001_636622.pdf"
+                        target="_blank">2019_010_001_636622.pdf (cmu.edu) &nbsp;<i class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://fairlac.iadb.org/sites/default/files/2022-10/fAIr%20LAC-checklist_DataScience-1.pdf"
+                        target="_blank">fAIr LAC-checklist_DataScience-1.pdf (iadb.org) &nbsp;<i
+                            class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://fpf.org/wp-content/uploads/2023/07/Generative-AI-Checklist.pdf"
+                        target="_blank">Generative AI Checklist (Print Version) (fpf.org) &nbsp;<i
+                            class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://ai.google/responsibility/responsible-ai-practices/" target="_blank">
+                        Google Responsible AI Practices – Google AI &nbsp;<i class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://www.programstrategyhq.com/post/responsible-ai-checklist-pshq" target="_blank">
+                        Responsible AI Checklist | PSHQ (programstrategyhq.com) &nbsp;<i
+                            class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://trustarc.com/resource/responsible-ai-checklist/" target="_blank">
+                        Responsible Artificial Intelligence Checklist | TrustArc &nbsp;<i
+                            class="fa fa-external-link"></i></a>
+                    <br>
+                    <a href="https://www.dlapiper.com/en-ca/insights/publications/2023/05/how-artificial-intelligence-will-change-administrative-law-in-canada"
+                        target="_blank">
+                        How artificial intelligence will change administrative law: The Government of Canada’s Directive
+                        on automated
+                        decision-making &nbsp;<i class="fa fa-external-link"></i></a>
+                    <br>
                 </p>
             </div>
         </div>
