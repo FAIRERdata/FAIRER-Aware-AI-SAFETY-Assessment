@@ -21,11 +21,11 @@
 
     <style>
         .col1 {
-            width: 78%
+            width: 71%
         }
 
         .col2 {
-            width: 22%
+            width: 29%
         }
 
         .comment-textarea {
@@ -130,15 +130,6 @@
             padding-right: 18px;
         }
 
-        #versuslist ul li {
-            display: none;
-        }
-
-        #versuslist:hover ul li {
-            display: block;
-            color: pink;
-        }
-
         @media screen {
             .noPrint {
                 display: block;
@@ -150,8 +141,15 @@
         }
 
         @media print {
+
+            @page {
+                size: A4;
+                margin-top: 140px;
+            }
+
             .noPrint {
                 display: none;
+
             }
 
             .noScreen {
@@ -202,45 +200,46 @@
 
             // When user selected no for using machine learning as a method but selected yes to 
             // machine learning tools/methods
-
-            const ml_no = document.querySelector('input[data-answer="no"].ml') // gets the choice of no for machine learning
-            const ml_checklist = document.querySelectorAll('input[data-answer="yes"].ml') // gets yes's for tools
-
-            if (ml_no.checked && (ml_checklist[1].checked || ml_checklist[2].checked)) {
-                alert('In the previous question, no was selected for the method used for the AI application');
-                ml_checklist[1].checked = false;
-                ml_checklist[2].checked = false;
-            }
-
-            // When user selected no for using deep learning as a method but selected yes to deep learning
-            // tools and methods
-            const dl_no = document.querySelector('input[data-answer="no"].dl') // gets the choice of no for deep learning
-            const dl_checklist = document.querySelectorAll('input[data-answer="yes"].dl') // gets yes's for tools
-
-            if (dl_no.checked && dl_checklist[1].checked) {
-                alert('In the previous question, no was selected for the method used for the AI application');
-                dl_checklist[1].checked = false;
-            }
-
-            // When user selected no for using computer vision as a method but selected yes to computer vision
-            // tools and methods
-            const cv_no = document.querySelector('input[data-answer="no"].cv') // gets the choice of no for computer vision
-            const cv_checklist = document.querySelectorAll('input[data-answer="yes"].cv') // gets yes's for tools
-
-            if (cv_no.checked && cv_checklist[1].checked) {
-                alert('In the previous question, no was selected for the method used for the AI application');
-                cv_checklist[1].checked = false;
-            }
-
-            // When user selected no for NLP practical use but selects yes for NLP tools/methods
-
-            const nlp_no = document.querySelector('input[data-answer="no"].nlp') // gets the choice of no for NLP
-            const nlp_checklist = document.querySelectorAll('input[data-answer="yes"].nlp') // gets yes's for tools
-
-            if (nlp_no.checked && nlp_checklist[1].checked) {
-                alert('In the previous question, no was selected for the method used for the AI application');
-                nlp_checklist[1].checked = false;
-            }
+            /*
+                        const ml_no = document.querySelector('input[data-answer="no"].ml') // gets the choice of no for machine learning
+                        const ml_checklist = document.querySelectorAll('input[data-answer="yes"].ml') // gets yes's for tools
+            
+                        if (ml_no.checked && (ml_checklist[1].checked || ml_checklist[2].checked)) {
+                            alert('In the previous question, no was selected for the method used for the AI application');
+                            ml_checklist[1].checked = false;
+                            ml_checklist[2].checked = false;
+                        }
+            
+                        // When user selected no for using deep learning as a method but selected yes to deep learning
+                        // tools and methods
+                        const dl_no = document.querySelector('input[data-answer="no"].dl') // gets the choice of no for deep learning
+                        const dl_checklist = document.querySelectorAll('input[data-answer="yes"].dl') // gets yes's for tools
+            
+                        if (dl_no.checked && dl_checklist[1].checked) {
+                            alert('In the previous question, no was selected for the method used for the AI application');
+                            dl_checklist[1].checked = false;
+                        }
+            
+                        // When user selected no for using computer vision as a method but selected yes to computer vision
+                        // tools and methods
+                        const cv_no = document.querySelector('input[data-answer="no"].cv') // gets the choice of no for computer vision
+                        const cv_checklist = document.querySelectorAll('input[data-answer="yes"].cv') // gets yes's for tools
+            
+                        if (cv_no.checked && cv_checklist[1].checked) {
+                            alert('In the previous question, no was selected for the method used for the AI application');
+                            cv_checklist[1].checked = false;
+                        }
+            
+                        // When user selected no for NLP practical use but selects yes for NLP tools/methods
+            
+                        const nlp_no = document.querySelector('input[data-answer="no"].nlp') // gets the choice of no for NLP
+                        const nlp_checklist = document.querySelectorAll('input[data-answer="yes"].nlp') // gets yes's for tools
+            
+                        if (nlp_no.checked && nlp_checklist[1].checked) {
+                            alert('In the previous question, no was selected for the method used for the AI application');
+                            nlp_checklist[1].checked = false;
+                        }
+                            */
 
             // Clear and Check for Total Score
             let totalScore = 0;
@@ -1368,7 +1367,10 @@
                         </label>
                         <label>
                             <input type="radio" name="checklist44" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
+                            know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="checklist44" value="4" onclick="update_checklist()">&nbsp; N/A
                         </label>
                     </td>
                 </tr>
@@ -1388,8 +1390,10 @@
                         </label>
                         <label>
                             <input type="radio" name="checklist45" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
-
+                            know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="checklist45" value="4" onclick="update_checklist()">&nbsp; N/A
                         </label>
                     </td>
                 </tr>
@@ -1456,10 +1460,10 @@
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist48" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
-
+                            <input type="radio" name="checklist48" value="4" onclick="update_checklist()">&nbsp; Upon
+                            request only
                         </label>
+
                     </td>
                 </tr>
                 <tr>
@@ -1477,8 +1481,8 @@
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist49" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
+                            <input type="radio" name="checklist49" value="4" onclick="update_checklist()">&nbsp; Upon
+                            request only
 
                         </label>
                     </td>
@@ -1705,17 +1709,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist56" data-answer="yes" value="0"
+                            <input type="radio" name="checklist51" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist56" data-answer="no" value="0"
+                            <input type="radio" name="checklist51" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist56" data-answer="dk" value="0"
+                            <input type="radio" name="checklist51" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1732,17 +1736,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist57" data-answer="yes" value="0"
+                            <input type="radio" name="checklist52" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist57" data-answer="no" value="0"
+                            <input type="radio" name="checklist52" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist57" data-answer="dk" value="0"
+                            <input type="radio" name="checklist52" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1760,17 +1764,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist58" data-answer="yes" value="0"
+                            <input type="radio" name="checklist53" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist58" data-answer="no" value="0"
+                            <input type="radio" name="checklist53" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist58" data-answer="dk" value="0"
+                            <input type="radio" name="checklist53" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1787,17 +1791,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist59" data-answer="yes" value="0"
+                            <input type="radio" name="checklist54" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist59" data-answer="no" value="0"
+                            <input type="radio" name="checklist54" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist59" data-answer="dk" value="0"
+                            <input type="radio" name="checklist54" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1815,17 +1819,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist60" class="ml" data-answer="yes" value="0"
+                            <input type="radio" name="checklist55" class="ml" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist60" class="ml" data-answer="no" value="0"
+                            <input type="radio" name="checklist55" class="ml" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist60" class="ml" data-answer="dk" value="0"
+                            <input type="radio" name="checklist55" class="ml" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
 
@@ -1843,17 +1847,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist61" class="cv" data-answer="yes" value="0"
+                            <input type="radio" name="checklist56" class="cv" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist61" class="cv" data-answer="no" value="0"
+                            <input type="radio" name="checklist56" class="cv" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist61" class="cv" data-answer="dk" value="0"
+                            <input type="radio" name="checklist56" class="cv" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1870,17 +1874,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist62" class="dl" data-answer="yes" value="0"
+                            <input type="radio" name="checklist57" class="dl" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist62" class="dl" data-answer="no" value="0"
+                            <input type="radio" name="checklist57" class="dl" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist62" class="dl" data-answer="dk" value="0"
+                            <input type="radio" name="checklist57" class="dl" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1897,17 +1901,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist63" class="ml" data-answer="yes" value="0"
+                            <input type="radio" name="checklist58" class="ml" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist63" class="ml" data-answer="no" value="0"
+                            <input type="radio" name="checklist58" class="ml" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist63" class="ml" data-answer="dk" value="0"
+                            <input type="radio" name="checklist58" class="ml" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1924,17 +1928,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist64" class="nlp" data-answer="yes" value="0"
+                            <input type="radio" name="checklist59" class="nlp" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist64" class="nlp" data-answer="no" value="0"
+                            <input type="radio" name="checklist59" class="nlp" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist64" class="nlp" data-answer="dk" value="0"
+                            <input type="radio" name="checklist59" class="nlp" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1951,17 +1955,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist65" data-answer="yes" value="0"
+                            <input type="radio" name="checklist60" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist65" data-answer="no" value="0"
+                            <input type="radio" name="checklist60" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist65" data-answer="dk" value="0"
+                            <input type="radio" name="checklist60" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -1978,17 +1982,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist66" data-answer="yes" value="0"
+                            <input type="radio" name="checklist61" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist66" data-answer="no" value="0"
+                            <input type="radio" name="checklist61" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist66" data-answer="dk" value="0"
+                            <input type="radio" name="checklist61" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2005,17 +2009,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist67" data-answer="yes" value="0"
+                            <input type="radio" name="checklist62" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist67" data-answer="no" value="0"
+                            <input type="radio" name="checklist62" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist67" data-answer="dk" value="0"
+                            <input type="radio" name="checklist62" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2032,17 +2036,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist68" data-answer="yes" value="0"
+                            <input type="radio" name="checklist63" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist68" data-answer="no" value="0"
+                            <input type="radio" name="checklist63" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist68" data-answer="dk" value="0"
+                            <input type="radio" name="checklist63" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2059,17 +2063,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist69" data-answer="yes" value="0"
+                            <input type="radio" name="checklist64" data-answer="yes" value="0"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist69" data-answer="no" value="0"
+                            <input type="radio" name="checklist64" data-answer="no" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist69" data-answer="dk" value="0"
+                            <input type="radio" name="checklist64" data-answer="dk" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2081,7 +2085,7 @@
                     </td>
                     <td class="col2">
                         <div></div>
-                        <input type="checkbox" name="checklist70" value="0" onclick="update_checklist()">
+                        <input type="checkbox" name="checklist65" value="0" onclick="update_checklist()">
                     </td>
                 </tr>
 
@@ -2118,15 +2122,15 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist71" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist66" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist71" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist66" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist71" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist66" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2148,15 +2152,15 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist72" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist67" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist72" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist67" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist72" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist67" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2179,15 +2183,15 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist73" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist68" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist73" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist68" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist73" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist68" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2209,15 +2213,15 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist74" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist69" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist74" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist69" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist74" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist69" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2242,16 +2246,19 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist75" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist70" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist75" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist70" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist75" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
+                            <input type="radio" name="checklist70" value="0" onclick="update_checklist()">&nbsp; Don't
+                            know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="checklist70" value="4" onclick="update_checklist()">&nbsp; N/A
                         </label>
                     </td>
                 </tr>
@@ -2272,14 +2279,14 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist76" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist71" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist76" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist71" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist76" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist71" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2301,15 +2308,18 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist77" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist72" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist77" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist72" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist77" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
+                            <input type="radio" name="checklist72" value="0" onclick="update_checklist()">&nbsp; Don't
+                            know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="checklist72" value="4" onclick="update_checklist()">&nbsp; N/A
                         </label>
                     </td>
                 </tr>
@@ -2329,14 +2339,14 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist78" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist73" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist78" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist73" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist78" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist73" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2359,14 +2369,14 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist79" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist74" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist79" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist74" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist79" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist74" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2387,14 +2397,14 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist80" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist75" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist80" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist75" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist80" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist75" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
                     </td>
@@ -2415,15 +2425,18 @@
                     </div>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist81" value="4" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist76" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <label>
-                            <input type="radio" name="checklist81" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist76" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist81" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
+                            <input type="radio" name="checklist76" value="0" onclick="update_checklist()">&nbsp; Don't
+                            know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="checklist76" value="4" onclick="update_checklist()">&nbsp; N/A
                         </label>
                     </td>
                 </tr>
@@ -2445,13 +2458,14 @@
                     </td>
                     <td class="col2">
                         <div></div>
-                        <label><input type="radio" name="checklist82" value="4" onclick="update_checklist()">&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <label><input type="radio" name="checklist82" value="0" onclick="update_checklist()">&nbsp; No
-                        </label><br>&#10;
-                        <label><input type="radio" name="checklist82" value="2"
-                                onclick="update_checklist()">&nbsp;Partially&nbsp;</label>
-                        <label><input type="radio" name="checklist82" value="0" onclick="update_checklist()">&nbsp;
+                        <label><input type="radio" name="checklist77" value="4" onclick="update_checklist()">&nbsp;
+                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input type="radio" name="checklist77" value="0" onclick="update_checklist()">&nbsp;
+                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label><input type="radio" name="checklist77" value="2"
+                                onclick="update_checklist()">&nbsp;Partially&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input type="radio" name="checklist77" value="0" onclick="update_checklist()">&nbsp;
                             Don't know</label>
                     </td>
                 </tr>
@@ -2476,7 +2490,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist83" value="1" onclick="update_checklist()">
+                            <input type="radio" name="checklist78" value="1" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2487,7 +2501,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist83" value="2" onclick="update_checklist()">
+                            <input type="radio" name="checklist78" value="2" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2498,7 +2512,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist83" value="3" onclick="update_checklist()">
+                            <input type="radio" name="checklist78" value="3" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2509,7 +2523,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist83" value="4" onclick="update_checklist()">
+                            <input type="radio" name="checklist78" value="4" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2520,7 +2534,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist83" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist78" value="0" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2540,17 +2554,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist84" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist79" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist84" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist79" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist84" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist79" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2563,17 +2577,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist85" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist80" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist85" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist80" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist85" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist80" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
 
@@ -2587,17 +2601,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist86" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist81" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist86" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist81" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist86" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist81" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
                         </label>
@@ -2610,17 +2624,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist87" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist82" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist87" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist82" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist87" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist82" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
 
@@ -2634,17 +2648,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist88" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist83" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist88" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist83" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist88" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist83" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
 
@@ -2657,17 +2671,17 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist89" data-answer="yes" class="ntest" value="4"
+                            <input type="radio" name="checklist84" data-answer="yes" class="ntest" value="4"
                                 onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist89" data-answer="no" class="ntest" value="0"
+                            <input type="radio" name="checklist84" data-answer="no" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist89" data-answer="dk" class="ntest" value="0"
+                            <input type="radio" name="checklist84" data-answer="dk" class="ntest" value="0"
                                 onclick="update_checklist()">&nbsp; Don't
                             know
 
@@ -2681,7 +2695,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="checkbox" name="checklist90" class="ntest" value="0"
+                            <input type="checkbox" name="checklist85" class="ntest" value="0"
                                 onclick="update_checklist()">
                         </label>
                 </tr>
@@ -2706,7 +2720,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist91" value="4" onclick="update_checklist()">
+                            <input type="radio" name="checklist86" value="4" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2717,7 +2731,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist91" value="3" onclick="update_checklist()">
+                            <input type="radio" name="checklist86" value="3" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2728,7 +2742,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist91" value="2" onclick="update_checklist()">
+                            <input type="radio" name="checklist86" value="2" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2739,7 +2753,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist91" value="1" onclick="update_checklist()">
+                            <input type="radio" name="checklist86" value="1" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2750,7 +2764,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist91" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist86" value="0" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -2782,21 +2796,22 @@
                                         target="_blank">International
                                         Scientific Report on the Safety of Advanced AI</a>
                                 </li>
+                                <li>OECD</li>
                             </ul>
                         </div>
                     </div>
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist92" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist87" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist92" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist87" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist92" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist87" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -2854,15 +2869,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist93" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist88" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist93" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist88" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist93" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist88" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -2889,13 +2904,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.ai4eu.eu/observatory" target="_blank">AI4EU Observatory: Trends
-                                        and Insights</a>
+                                    <a href="https://www.ai4europe.eu/ethics/osai" target="_blank">The Observatory on
+                                        Society and Artificial Intelligence (OSAI) | AI-on-Deman</a>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2020)646202"
+                                    <a href="https://www.europarl.europa.eu/RegData/etudes/STUD/2020/621926/IPOL_STU(2020)621926_EN.pdf"
                                         target="_blank">Artificial Intelligence and Civil Liability – European
                                         Parliament Briefing
                                     </a>
@@ -3009,15 +3024,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist94" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist89" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist94" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist89" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist94" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist89" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -3091,15 +3106,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist95" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist90" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist95" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist90" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist95" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist90" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -3124,15 +3139,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist96" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist91" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist96" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist91" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist96" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist91" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -3275,15 +3290,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist97" value="4" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist92" value="4" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist97" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist92" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist97" value="2" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist92" value="2" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -3352,15 +3367,15 @@
                     </td>
                     <td class="col2">
                         <label>
-                            <input type="radio" name="checklist98" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist93" value="0" onclick="update_checklist()">&nbsp;
                             Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist98" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="radio" name="checklist93" value="0" onclick="update_checklist()">&nbsp;
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklist98" value="0" onclick="update_checklist()">&nbsp; Some
+                            <input type="radio" name="checklist93" value="0" onclick="update_checklist()">&nbsp; Some
 
                     </td>
                 </tr>
@@ -3426,7 +3441,25 @@
     </div>
     <div class="noScreen">
         <p>Scoring Rules</p>
-        <p></p>
+        <p>
+        <ul>
+            <li>Questions 4-8 give 4 points for each "Yes"</li>
+            <li>Question 9 gives 4 points for Rule-based expert system, 3 points for Machine Learning,
+                2 points for Neural Network, 1 point for Deep Learning, 0 points for Computer Vision and NLP/LLM
+            </li>
+            <li>Question 12 gives 4 points for each "Yes"</li>
+            <li>Question 13 gives 4 points for "Yes" and 2 points for "Partially"</li>
+            <li>Question 14 gives 4 points for the "High", 3 for "Good", 2 for "Low", 1 for "Poor",
+                and 0 for "Not completed"
+            </li>
+            <li>Question 15 gives 4 points for each "Yes"</li>
+            <li>Question 16 gives 4 points for "level I", 3 points for "level II", 2 points for "level III",
+                1 point for "level IV", and 0 for "Not completed"
+            </li>
+            <li>Question 17 gives 4 points for each "Yes", 2 points for each "Some", except Other</li>
+            <li>All other questions give 0 points regardless of choice</li>
+        </ul>
+        </p>
 
     </div>
 
