@@ -174,6 +174,21 @@
 <body>
     <script>
         /* ----------------------------- update_checklist() ----------------------------- */
+        
+        function get_total_questions() {
+                const checklist = document.getElementById("checklist-table");
+                const radioButtons = checklist.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+                
+                let question_set = new Set();
+
+                // Loop through radio buttons
+                radioButtons.forEach(radioButton => {
+                    question_set.add(radioButton.name);
+                });
+                
+                return question_set.size;
+            }
+
         function update_checklist() {
             // Contradictions
             // Unclicking previous choices when clicking on not tested and vice versa 
@@ -240,21 +255,22 @@
                             nlp_checklist[1].checked = false;
                         }
                             */
-
+            
             // Clear and Check for Total Score
             let totalScore = 0;
             // Get the checklist division by ID
             const checklist = document.getElementById("checklist-table");
-
+    
             // Find all radio buttons within the checklist division
             const radioButtons = checklist.querySelectorAll('input[type="radio"], input[type="checkbox"]');
-
-            const question_set = new Set();
-
+         
+            let question_set = new Set();
+            
             // Loop through radio buttons
             radioButtons.forEach(radioButton => {
                 // Check if the radio button is checked
                 question_set.add(radioButton.name);
+               
                 if (radioButton.checked) {
                     // Add the value of the checked radio button to the total score
                     totalScore += parseInt(radioButton.value);
@@ -262,7 +278,6 @@
             });
 
             const total_questions = question_set.size;
-
             let total_max = 0;
             let max = 0;
             let score_list = [];
@@ -300,10 +315,52 @@
             });
         }
 
+    function validateForm() {
+        // Array of group names
+        const total_questions = get_total_questions();
+        const checklist = document.getElementById("checklist-table");
+        let unanswered = [];
+
+         for (let i = 1; i <= total_questions; i++) {
+            const radio_group = checklist.querySelectorAll(`input[name="checklist${i}"]`);
+            let question_group_num = Array.from(radio_group).length;
+
+            radio_group.forEach(radioButton => {
+                 if (radioButton.checked) {
+                    question_group_num -= 1;
+                 }
+             });
+
+             if (question_group_num == Array.from(radio_group).length) {
+                const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText
+                const question_name = radio_group[0].closest("tr").childNodes[1].textContent
+
+                let question_string = "Question \"" + question_name + "\" in section \"" + question_category + "\" has not been answered";
+                unanswered.push(question_string);
+             }
+        };
+        var modalContent = document.getElementById('unanswered-questions-contents');
+        var new_content = "<ul>";
+        for (let i = 1; i < unanswered.length; i++) {
+            new_content += "<li>" + unanswered[i] + "</li>";
+        }
+        new_content += "</ul>";
+        modalContent.innerHTML = new_content;
+        show_modal("unanswered-questions");
+
+        return "hi";
+
+    }
         function print_page() {
-            document.getElementById("print-button").style.display = "none"
-            window.print();
-            document.getElementById("print-button").style.display = "block"
+            const unanswered = validateForm();
+            
+            if (unanswered == "hi") {
+                alert("Feature currently under development")
+                document.getElementById("print-button").style.display = "none";
+                window.print();
+                document.getElementById("print-button").style.display = "block";
+            }
+            
         }
     </script>
 
@@ -1323,7 +1380,7 @@
                             No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                         <label>
-                            <input type="radio" name="checklis42" value="0" onclick="update_checklist()">&nbsp; Don't
+                            <input type="radio" name="checklist42" value="0" onclick="update_checklist()">&nbsp; Don't
                             know
 
                         </label>
@@ -3458,6 +3515,7 @@
             </li>
             <li>Question 17 gives 4 points for each "Yes", 2 points for each "Some", except Other</li>
             <li>All other questions give 0 points regardless of choice</li>
+            <li>"N/A" choices and "Upon request only" give the same amount of points as selecting "Yes"</li>
         </ul>
         </p>
 
@@ -3987,6 +4045,13 @@
             </div>
         </div>
 
+        <div id="unanswered-questions">
+            <div id="unanswered-questions-title"> Unanswered Questions</div>
+            <div id="unanswered-questions-contents">
+                
+            </div>
+        </div>
+
 
         <div id="versus" style="display:none;">
             <div id="versus-title">All capability vs. inherent limitation choices</div>
@@ -4357,6 +4422,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
