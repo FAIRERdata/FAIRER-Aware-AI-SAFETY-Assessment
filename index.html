@@ -141,7 +141,7 @@
         }
 
         @media print {
-
+            
             @page {
                 size: A4;
                 margin-top: 140px;
@@ -154,6 +154,9 @@
 
             .noScreen {
                 display: block;
+            }
+            #modal-print{
+                display: none !important;
             }
         }
 
@@ -199,6 +202,7 @@
 
             for (let i = start; i <= end; i++) {
                 const checklistYes = document.querySelector(`input[name="checklist${i}"][data-answer="yes"]`);
+                const checklistNo = document.querySelector(`input[name="checklist${i}"][data-answer="no"]`);
 
                 checklistYes.addEventListener('change', function () {
                     if (checklistYes.checked && not_tested_choice.checked) {
@@ -209,6 +213,10 @@
                 not_tested_choice.addEventListener('change', function () {
                     if (not_tested_choice.checked && checklistYes.checked) {
                         checklistYes.checked = false;
+                        checklistNo.checked = true;
+                    }
+                    else if (not_tested_choice.checked) {
+                        checklistNo.checked = true;
                     }
                 });
             }
@@ -298,24 +306,24 @@
         }
 
 
-        function write_to_modal(title, contents) {
-            $("#modal-title").html(title);
-            $("#modal-body").html(contents);
+        function write_to_modal(title, contents, modal_id, title_id, body_id) {
+            $(modal_id + title_id).html(title);
+            $(modal_id + body_id).html(contents);
         }
 
-        function show_modal(id_prefix) {
-            var title = document.getElementById(id_prefix + "-title").textContent;
-            var contents = document.getElementById(id_prefix + "-contents").innerHTML;
-            write_to_modal(title, contents);
-            $('#modal').modal('show');
+        function show_modal(id_prefix, modal_id, title_id, body_id, content_id) {
+            var title = document.getElementById(id_prefix + title_id).textContent;
+            var contents = document.getElementById(id_prefix + content_id).innerHTML;
+            write_to_modal(title, contents, modal_id, title_id, body_id);
+            $(modal_id).modal('show');
             $(document).keydown(function (event) {
                 if (event.keyCode == 27) {
-                    $('#modal').modal('hide');
+                    $(modal_id).modal('hide');
                 }
             });
         }
 
-    function validateForm() {
+    function validate_answers() {
         // Array of group names
         const total_questions = get_total_questions();
         const checklist = document.getElementById("checklist-table");
@@ -332,35 +340,37 @@
              });
 
              if (question_group_num == Array.from(radio_group).length) {
-                const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText
-                const question_name = radio_group[0].closest("tr").childNodes[1].textContent
+                const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
+                const question_name = radio_group[0].closest("tr").childNodes[1].textContent.trim();
 
-                let question_string = "Question \"" + question_name + "\" in section \"" + question_category + "\" has not been answered";
+                if (question_name == "Other" || question_name == "Not tested") {
+                    continue;
+                }
+
+                let question_string = "<b>" + question_name + "</b> in section <b>" + question_category + "</b> has not been answered";
                 unanswered.push(question_string);
              }
         };
         var modalContent = document.getElementById('unanswered-questions-contents');
-        var new_content = "<ul>";
-        for (let i = 1; i < unanswered.length; i++) {
+        var new_content = "<p>The following questions are unanswered. If you would still like to print, please press the print button at the bottom of this message.</p><ul>";
+        for (let i = 0; i < unanswered.length; i++) {
             new_content += "<li>" + unanswered[i] + "</li>";
         }
+     
         new_content += "</ul>";
         modalContent.innerHTML = new_content;
-        show_modal("unanswered-questions");
-
-        return "hi";
-
+        if (!Array.isArray(unanswered) || !unanswered.length) {
+            print_page();
+        }
+        else {
+            show_modal('unanswered-questions', '#modal-print', '-title', '-body', '-contents');
+        } 
     }
         function print_page() {
-            const unanswered = validateForm();
-            
-            if (unanswered == "hi") {
-                alert("Feature currently under development")
-                document.getElementById("print-button").style.display = "none";
-                window.print();
-                document.getElementById("print-button").style.display = "block";
-            }
-            
+            alert("Feature currently under development")
+            document.getElementById("print-button").style.display = "none";
+            window.print();
+            document.getElementById("print-button").style.display = "block";
         }
     </script>
 
@@ -443,7 +453,7 @@
                 <p>Version 0.1.0 alpha (2024-06-02)</p>
                 <p> <a href="https://www.niso.org/press-releases/contributor-roles-taxonomy-credit-formalized-ansiniso-standard"
                         target="_blank">CRediT <i class="fa fa-external-link"></i></a><a data-toggle="modal"
-                        onclick="show_modal('citation')"> Author statement <i class="fa fa-long-arrow-left"></i></a>
+                        onclick="show_modal('citation', '#modal', '-title', '-body', '-contents')"> Author statement <i class="fa fa-long-arrow-left"></i></a>
                 </p>
             </div><br>
 
@@ -585,7 +595,7 @@
             <tbody>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('admin-decision-making')">
+                        <a data-toggle="modal" onclick="show_modal('admin-decision-making', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Administrative decision-making
                         </a>
@@ -756,7 +766,7 @@
             <tbody>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('art')">
+                        <a data-toggle="modal" onclick="show_modal('art', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Art and creativity
                         </a>
@@ -784,7 +794,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('auto')">
+                        <a data-toggle="modal" onclick="show_modal('auto', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Autonomous vehicles
                         </a>
@@ -811,7 +821,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('finance')">
+                        <a data-toggle="modal" onclick="show_modal('finance', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Finance
                         </a>
@@ -838,7 +848,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('health')">
+                        <a data-toggle="modal" onclick="show_modal('health', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Healthcare
                         </a>
@@ -865,7 +875,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('vid')">
+                        <a data-toggle="modal" onclick="show_modal('vid', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Image and video recognition
                         </a>
@@ -891,7 +901,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('nlp')">
+                        <a data-toggle="modal" onclick="show_modal('nlp', '#modal', '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Natural Language Processing (NLP)
                         </a>
@@ -921,7 +931,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('genai')">
+                        <a data-toggle="modal" onclick="show_modal('genai', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Generative AI
                         </a>
@@ -1555,7 +1565,7 @@
             <tbody>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('rule')">
+                        <a data-toggle="modal" onclick="show_modal('rule', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Rule-based expert system
                         </a>
@@ -1582,7 +1592,7 @@
                 </tr>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('machine-learning')">
+                        <a data-toggle="modal" onclick="show_modal('machine-learning', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Machine Learning
                         </a>
@@ -1609,7 +1619,7 @@
                 </tr>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('neural-network')">
+                        <a data-toggle="modal" onclick="show_modal('neural-network', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Neural Network
                         </a>
@@ -1653,7 +1663,7 @@
 
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('deep')">
+                        <a data-toggle="modal" onclick="show_modal('deep', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Deep Learning
                         </a>
@@ -1680,7 +1690,7 @@
                 </tr>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('vision')">
+                        <a data-toggle="modal" onclick="show_modal('vision', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Computer Vision
                         </a>
@@ -1706,7 +1716,7 @@
                 </tr>
                 <tr>
                     <td class="col1">&nbsp;
-                        <a data-toggle="modal" onclick="show_modal('vision')">
+                        <a data-toggle="modal" onclick="show_modal('vision', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Natural Language Processing (NLP) or Large Language Model (LLM)
                         </a>
@@ -1757,7 +1767,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('dev')">
+                        <a data-toggle="modal" onclick="show_modal('dev', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             AI Development and Deployment Platforms
                         </a>
@@ -1785,7 +1795,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('framework')">
+                        <a data-toggle="modal" onclick="show_modal('framework', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             AI Frameworks for Edge and Mobile
                         </a>
@@ -1813,7 +1823,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('exp')">
+                        <a data-toggle="modal" onclick="show_modal('exp', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             AI Research and Experimentation Platforms
                         </a>
@@ -1840,7 +1850,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('hardware')">
+                        <a data-toggle="modal" onclick="show_modal('hardware', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             AI-Specific Hardware
                         </a>
@@ -1868,7 +1878,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('automl')">
+                        <a data-toggle="modal" onclick="show_modal('automl', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Automated Machine Learning (AutoML)
                         </a>
@@ -1896,7 +1906,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('visionlib')">
+                        <a data-toggle="modal" onclick="show_modal('visionlib', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Computer Vision Libraries
                         </a>
@@ -1923,7 +1933,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('deeplib')">
+                        <a data-toggle="modal" onclick="show_modal('deeplib', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Deep Learning Libraries
                         </a>
@@ -1950,7 +1960,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('mlframework')">
+                        <a data-toggle="modal" onclick="show_modal('mlframework', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Machine Learning Frameworks
                         </a>
@@ -1977,7 +1987,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('nlptool')">
+                        <a data-toggle="modal" onclick="show_modal('nlptool', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Natural Language Processing (NLP) Tools
                         </a>
@@ -2004,7 +2014,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('reinllib')">
+                        <a data-toggle="modal" onclick="show_modal('reinllib', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Reinforcement Learning Libraries
                         </a>
@@ -2031,7 +2041,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('simpleai')">
+                        <a data-toggle="modal" onclick="show_modal('simpleai', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Simple AI tasks
                         </a>
@@ -2058,7 +2068,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('recommendation-system')">
+                        <a data-toggle="modal" onclick="show_modal('recommendation-system', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Recommendation System
                         </a>
@@ -2085,7 +2095,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('robotics')">
+                        <a data-toggle="modal" onclick="show_modal('robotics', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Robotics
                         </a>
@@ -2112,7 +2122,7 @@
                 <tr>
                     <td class="col1">&nbsp;
 
-                        <a data-toggle="modal" onclick="show_modal('speech-recognition')">
+                        <a data-toggle="modal" onclick="show_modal('speech-recognition', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Speech recognition
                         </a>
@@ -2150,7 +2160,7 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        <a data-toggle="modal" onclick="show_modal('versus')" style="color:white;">
+                        <a data-toggle="modal" onclick="show_modal('versus', '#modal' ,  '-title', '-body', '-contents')" style="color:white;">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; 12. The capability vs. inherent limitation of this AI application is properly managed
                             to
@@ -2163,7 +2173,7 @@
                 <tr>
                     <td class="col1">
 
-                        <a data-toggle="modal" onclick="show_modal('versus1')">
+                        <a data-toggle="modal" onclick="show_modal('versus1', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Data-Driven Decision Making vs. Human Judgment
                         </a>
@@ -2194,7 +2204,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus2')">
+                        <a data-toggle="modal" onclick="show_modal('versus2', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Efficiency vs. Ethical Considerations
                         </a>
@@ -2225,7 +2235,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus3')">
+                        <a data-toggle="modal" onclick="show_modal('versus3', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Personalization vs. Privacy
                         </a>
@@ -2255,7 +2265,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus4')">
+                        <a data-toggle="modal" onclick="show_modal('versus4', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Automation vs. Human Interaction
                         </a>
@@ -2286,7 +2296,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus5')">
+                        <a data-toggle="modal" onclick="show_modal('versus5', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Common Sense Reasoning vs. Causality
                         </a>
@@ -2321,7 +2331,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus6')">
+                        <a data-toggle="modal" onclick="show_modal('versus6', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Data Processing vs. Data Quality
                         </a>
@@ -2350,7 +2360,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus7')">
+                        <a data-toggle="modal" onclick="show_modal('versus7', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Creativity vs. Hallucination
                         </a>
@@ -2411,7 +2421,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus9')">
+                        <a data-toggle="modal" onclick="show_modal('versus9', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Optimization vs. Context Awareness
                         </a>
@@ -2441,7 +2451,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus10')">
+                        <a data-toggle="modal" onclick="show_modal('versus10', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Predictability vs. Innovation
                         </a>
@@ -2469,7 +2479,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('versus')">
+                        <a data-toggle="modal" onclick="show_modal('versus', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Other (Choices 11-26)
                         </a>
@@ -2839,7 +2849,7 @@
             <tbody>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref1')">
+                        <a data-toggle="modal" onclick="show_modal('ref1', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; International
                         </a>
@@ -2875,7 +2885,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref2')">
+                        <a data-toggle="modal" onclick="show_modal('ref2', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Government of Canada
                         </a>
@@ -2941,7 +2951,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref3')">
+                        <a data-toggle="modal" onclick="show_modal('ref3', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; European Union
                         </a>
@@ -3096,7 +3106,7 @@
 
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref4')">
+                        <a data-toggle="modal" onclick="show_modal('ref4', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; U.S. Government
                         </a>
@@ -3177,7 +3187,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref5')">
+                        <a data-toggle="modal" onclick="show_modal('ref5', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; National Institute of Standards and Technology (NIST)
                         </a>
@@ -3210,7 +3220,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref6')">
+                        <a data-toggle="modal" onclick="show_modal('ref6', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; National Academies of Sciences, Engineering, and Medicine (NASEM)
                         </a>
@@ -3361,7 +3371,7 @@
                 </tr>
                 <tr>
                     <td class="col1">
-                        <a data-toggle="modal" onclick="show_modal('ref7')">
+                        <a data-toggle="modal" onclick="show_modal('ref7', '#modal' ,  '-title', '-body', '-contents')">
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Other
                         </a>
@@ -3491,7 +3501,7 @@
         <div class="button-container">
             <button id="print-button"
                 title="Your results will show up in a pop-up window and you will be able to print them."
-                onclick="print_page()">
+                onclick="validate_answers()">
                 <i class="fa fa-print"></i> Click Here to Print Results
             </button>
         </div>
@@ -3542,6 +3552,27 @@
             </div>
         </div>
     </div>
+
+        <div id="modal-print" class="modal fade" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        
+                        <h4 class="modal-title" id="modal-print-title">
+                        </h4>
+                    </div>
+                    <div class="modal-body" id="modal-print-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" onclick="print_page()">
+                            <span class="glyphicon glyphicon-print"></span> Print
+                        </button>
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- ====================================================================================== -->
     <!-- ======================================= TEXTS  ======================================= -->
