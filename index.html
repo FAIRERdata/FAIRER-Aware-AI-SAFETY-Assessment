@@ -612,8 +612,9 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        2. I use this AI application during one or more stages of the AI lifecycle 
-                        <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FFAIRERdata%2FFAIRER-Aware-AI-SAFETY-Assessment%2Fmain%2FLifecycle%2520stages.xlsx&wdOrigin=BROWSELINK" target="_blank">(NIST)</a>:
+                        2. I use this AI application during one or more stages of the AI lifecycle
+                        <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FFAIRERdata%2FFAIRER-Aware-AI-SAFETY-Assessment%2Fmain%2FLifecycle%2520stages.xlsx&wdOrigin=BROWSELINK"
+                            target="_blank">(NIST)</a>:
                         </a>
                     </th>
                     <div id="life" style="display:none;">
@@ -646,12 +647,13 @@
             <tbody>
                 <tr>
                     <td colspan="2" style="padding: 10px 10px 0px 10px;">
-                        <center><img src="images/question_images/lifecycle.png" height="350" style="padding-bottom: 3px;">
+                        <center><img src="images/question_images/lifecycle.png" height="350"
+                                style="padding-bottom: 3px;">
                             <br>
                             <div class="panel-group" id="accordion2" style="width:635px;">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#description2"
-                                        style="padding:2px 2px 3px 3px;">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2"
+                                        href="#description2" style="padding:2px 2px 3px 3px;">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion2" href="#description2"
                                                 style="font-size:10px; height:10px;">
@@ -661,15 +663,21 @@
                                     <div id="description2" class="panel-collapse collapse">
                                         <div class="panel-body" style="text-align: left;">
                                             <p>
-                                            <b>Lifecycle and Key Dimensions of an AI System.</b> The two inner circles show AI systems’ key dimensions and the outer circle
-                                            shows AI lifecycle stages: Plan & Design, Collect & Process Data, Build & Use Model, Verify & Validate, Deploy & Use,
-                                            Operate & Monitor. Ideally, risk management efforts start with the Plan & Design function in the application context and
-                                            are performed throughout the AI system lifecycle. </p>
-                                            
-                                            <p></p>SOURCE: 
-                                            <a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank">NIST</a>, modified from 
-                                            <a href="https://www.oecd-ilibrary.org/docserver/cb6d9eca-en.pdf?expires=1719778924&id=id&accname=guest&checksum=D4A7B90300A4ED54CD3E14F77B6DD9C0" target="_blank">OECD (2022) Framework for the
-                                            Classification of AI systems</a>.
+                                                <b>Lifecycle and Key Dimensions of an AI System.</b> The two inner
+                                                circles show AI systems’ key dimensions and the outer circle
+                                                shows AI lifecycle stages: Plan & Design, Collect & Process Data, Build
+                                                & Use Model, Verify & Validate, Deploy & Use,
+                                                Operate & Monitor. Ideally, risk management efforts start with the Plan
+                                                & Design function in the application context and
+                                                are performed throughout the AI system lifecycle.
+                                            </p>
+
+                                            <p></p>SOURCE:
+                                            <a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf"
+                                                target="_blank">NIST</a>, modified from
+                                            <a href="https://www.oecd-ilibrary.org/docserver/cb6d9eca-en.pdf?expires=1719778924&id=id&accname=guest&checksum=D4A7B90300A4ED54CD3E14F77B6DD9C0"
+                                                target="_blank">OECD (2022) Framework for the
+                                                Classification of AI systems</a>.
                                         </div>
                                     </div>
                                 </div>
@@ -682,68 +690,69 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Plan and Design
                         </a>
-                        <div id="life1" style="display:none;">
-                            <div id="life1-title">Plan and Design</div>
-                            <div id="life1-contents">
-                                <ul>
-                                    <li>TEVV (test, evaluation, verification, and validation) includes:
-                                        <ul>
-                                            <li>Audit & impact assessment</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        Activities include
-                                        <ul>
-                                            <li>Articulate and document the system’s context and objectives, underlying
-                                                assumptions, and context of
-                                                intended use</li>
-                                            <li> log and track ethical considerations.
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        Actors include:
-                                        <ul class="long-list">
-                                            <li>System operators</li>
-                                            <li>end users</li>
-                                            <li>domain experts</li>
-                                            <li>AI designers</li>
-                                            <li>impact assessors</li>
-                                            <li>TEVV experts</li>
-                                            <li>product managers</li>
-                                            <li>compliance experts</li>
-                                            <li>auditors</li>
-                                            <li>governance experts</li>
-                                            <li>organisational management</li>
-                                            <li>C-suite executives</li>
-                                            <li>impacted individuals/communities</li>
-                                            <li>evaluators</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-
-
-                            </div>
                     </td>
-                    <td class="col2">
-                        <div></div>
-                        <label>
-                            <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
-                            &nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
+                    <div id="life1" style="display:none;">
+                        <div id="life1-title">Plan and Design</div>
+                        <div id="life1-contents">
+                            <ul>
+                                <li>TEVV (test, evaluation, verification, and validation) includes:
+                                    <ul>
+                                        <li>Audit & impact assessment</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Activities include
+                                    <ul>
+                                        <li>Articulate and document the system’s context and objectives, underlying
+                                            assumptions, and context of
+                                            intended use</li>
+                                        <li> log and track ethical considerations.
+                                        </li>
+                                    </ul>
+                                </li>
 
-                        <label>
-                            <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
-                            &nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
+                                <li>
+                                    Actors include:
+                                    <ul class="long-list">
+                                        <li>System operators</li>
+                                        <li>end users</li>
+                                        <li>domain experts</li>
+                                        <li>AI designers</li>
+                                        <li>impact assessors</li>
+                                        <li>TEVV experts</li>
+                                        <li>product managers</li>
+                                        <li>compliance experts</li>
+                                        <li>auditors</li>
+                                        <li>governance experts</li>
+                                        <li>organisational management</li>
+                                        <li>C-suite executives</li>
+                                        <li>impacted individuals/communities</li>
+                                        <li>evaluators</li>
+                                    </ul>
+                                </li>
+                            </ul>
 
-                        <label>
-                            <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
-                            &nbsp;Don't know
-                        </label>
 
-                    </td>
+                        </div>
+
+                        <td class="col2">
+                            <div></div>
+                            <label>
+                                <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
+                                &nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+
+                            <label>
+                                <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
+                                &nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+
+                            <label>
+                                <input type="radio" name="checklist8" value="0" onclick="update_checklist()">
+                                &nbsp;Don't know
+                            </label>
+
+                        </td>
                 </tr>
                 <tr>
                     <td class="col1">
@@ -1568,30 +1577,43 @@
             <tbody>
                 <tr>
                     <td colspan="2" style="padding: 10px 10px 0px 10px;">
-                        <center><img src="images/question_images/principles.png" height="170" style="padding-bottom: 3px;">
+                        <center><img src="images/question_images/principles.png" height="170"
+                                style="padding-bottom: 3px;">
                             <br>
-                        <div class="panel-group" id="accordion1" style="width:635px;">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion1" href="#description1" style="padding:2px 2px 3px 3px;">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion1" href="#description1" style="font-size:10px; height:10px;">
-                                         View Description</a>
-                                    </h4>
+                            <div class="panel-group" id="accordion1" style="width:635px;">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion1"
+                                        href="#description1" style="padding:2px 2px 3px 3px;">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion1" href="#description1"
+                                                style="font-size:10px; height:10px;">
+                                                View Description</a>
+                                        </h4>
+                                    </div>
+                                    <div id="description1" class="panel-collapse collapse">
+                                        <div class="panel-body" style="text-align: left;"><b>Trustworthiness: nine
+                                                principles characteristic of trustworthy AI systems.</b> Valid &
+                                            Reliable is a necessary condition of
+                                            trustworthiness and is shown as the base for the principles: safe, secure &
+                                            resilient, explainable & interpretable,
+                                            privacy-enhanced, and fair & managed bias. Accountable & Transparent is
+                                            shown as a vertical box relating to those six
+                                            principles. Altogether, 150 properties of trustworthiness have been
+                                            identified across all seven principles
+                                            (<a href="https://cltc.berkeley.edu/wp-content/uploads/2023/01/Taxonomy_of_AI_Trustworthiness.pdf"
+                                                target="_blank">Newman, 2023</a>) . The 8th and 9th principles
+                                            (Human-centred values and Inclusive growth, sustainable development, and
+                                            well-being)
+                                            are shown as underlying all the other principles. Figure adapted from
+                                            <a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf"
+                                                target="_blank">NIST</a>,
+                                            <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+                                                target="_blank">European Commission</a>, and
+                                            <a href="https://oecd.ai/en/ai-principles" target="_blank">OECD</a>.
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="description1" class="panel-collapse collapse">
-                                    <div class="panel-body" style="text-align: left;"><b>Trustworthiness: nine principles characteristic of trustworthy AI systems.</b> Valid & Reliable is a necessary condition of
-                                    trustworthiness and is shown as the base for the principles: safe, secure & resilient, explainable & interpretable,
-                                    privacy-enhanced, and fair & managed bias. Accountable & Transparent is shown as a vertical box relating to those six
-                                    principles. Altogether, 150 properties of trustworthiness have been identified across all seven principles 
-                                    (<a href="https://cltc.berkeley.edu/wp-content/uploads/2023/01/Taxonomy_of_AI_Trustworthiness.pdf" 
-                                    target="_blank">Newman, 2023</a>) . The 8th and 9th principles (Human-centred values and Inclusive growth, sustainable development, and well-being)
-                                    are shown as underlying all the other principles. Figure adapted from 
-                                    <a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank">NIST</a>, 
-                                    <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" target="_blank">European Commission</a>, and 
-                                    <a href="https://oecd.ai/en/ai-principles" target="_blank">OECD</a>.</div>
-                                </div>
-                            </div>
-                    </center>
+                        </center>
                     </td>
                 </tr>
                 <tr>
@@ -1600,30 +1622,31 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Safe
                         </a>
-                        <div id="principle1" style="display:none;">
-                            <div id="principle1-title">Safe</div>
-                            <div id="principle1-contents">
-                                <p>
-                                    Different types of safety risks may require tailored AI risk management approaches
-                                    based on context and the severity of
-                                    potential risks presented. Safe operation of AI systems is improved through:
-                                    Responsible design, development, and
-                                    deployment practices; Clear information to deployers on responsible use of the
-                                    system; Responsible decision-making by
-                                    deployers and end users; and, Explanations and documentation of risks based on
-                                    empirical evidence of incidents.
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Technical Robustness and safety: AI systems need to be resilient and secure. They
-                                    need to be safe, ensuring a fallback
-                                    plan in case something goes wrong, as well as being accurate, reliable, and
-                                    reproducible. That is the only way to ensure
-                                    that also unintentional harm can be minimized and prevented.
-                                    <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" target="_blank">(EUROPEAN COMMISSION).</a>
-                                </p>
-                            </div>
-                        </div>
-
                     </td>
+                    <div id="principle1" style="display:none;">
+                        <div id="principle1-title">Safe</div>
+                        <div id="principle1-contents">
+                            <p>
+                                Different types of safety risks may require tailored AI risk management approaches
+                                based on context and the severity of
+                                potential risks presented. Safe operation of AI systems is improved through:
+                                Responsible design, development, and
+                                deployment practices; Clear information to deployers on responsible use of the
+                                system; Responsible decision-making by
+                                deployers and end users; and, Explanations and documentation of risks based on
+                                empirical evidence of incidents.
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Technical Robustness and safety: AI systems need to be resilient and secure. They
+                                need to be safe, ensuring a fallback
+                                plan in case something goes wrong, as well as being accurate, reliable, and
+                                reproducible. That is the only way to ensure
+                                that also unintentional harm can be minimized and prevented.
+                                <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+                                    target="_blank">(EUROPEAN COMMISSION).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1650,53 +1673,56 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Secure & resilient
                         </a>
-                        <div id="principle2" style="display:none;">
-                            <div id="principle2-title">Secure & resilient</div>
-                            <div id="principle2-contents">
-                                <p>
-                                    Resiliency is the ability to withstand unexpected adverse events or unexpected
-                                    changes in their environment or use, and
-                                    to return to normal function after an unexpected adverse event. Safety is the
-                                    ability to maintain confidentiality,
-                                    integrity, and availability through protection mechanisms that prevent unauthorized
-                                    access. Security includes resilience
-                                    but also encompasses protocols to avoid, protect against, respond to, or recover
-                                    from attacks.
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-
-                                    Ensure that the
-                                    infrastructure and tools are appropriate for the security classification of the
-                                    information and that privacy and
-                                    personal information are protected. assess and manage cyber-security risks and
-                                    robustness when deploying a system.
-
-                                    <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/" target="_blank">(CANADA).</a>
-                                    AI systems should be robust, secure and safe throughout their entire lifecycle so
-                                    that, in conditions of
-                                    normal use, foreseeable use or misuse, or other adverse conditions, they function
-                                    appropriately and do not pose
-                                    unreasonable safety and/or security risks. Mechanisms should be in place, as
-                                    appropriate, to ensure that if AI systems
-                                    risk causing undue harm or exhibit undesired behaviour, they can be overridden,
-                                    repaired, and/or decommissioned safely
-                                    as needed. Mechanisms should also, where technically feasible, be in place to
-                                    bolster information integrity while
-                                    ensuring respect for freedom of expression. AI Actors should commit to transparency
-                                    and responsible disclosure regarding
-                                    AI systems. To this end, they should provide meaningful information, appropriate to
-                                    the context, and consistent with the
-                                    state of art. AI actors, should, based on their roles, the context, and their
-                                    ability to act, apply a systematic risk
-                                    management approach to each phase of the AI system lifecycle on an ongoing basis and
-                                    adopt responsible business conduct
-                                    to address risks related to AI systems.
-                                    <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
-                                    Ensure safe, secure and trustworthy AI.
-                                    <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf" target="_blank">(UNITED NATIONS).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle2" style="display:none;">
+                        <div id="principle2-title">Secure & resilient</div>
+                        <div id="principle2-contents">
+                            <p>
+                                Resiliency is the ability to withstand unexpected adverse events or unexpected
+                                changes in their environment or use, and
+                                to return to normal function after an unexpected adverse event. Safety is the
+                                ability to maintain confidentiality,
+                                integrity, and availability through protection mechanisms that prevent unauthorized
+                                access. Security includes resilience
+                                but also encompasses protocols to avoid, protect against, respond to, or recover
+                                from attacks.
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+
+                                Ensure that the
+                                infrastructure and tools are appropriate for the security classification of the
+                                information and that privacy and
+                                personal information are protected. assess and manage cyber-security risks and
+                                robustness when deploying a system.
+
+                                <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/"
+                                    target="_blank">(CANADA).</a>
+                                AI systems should be robust, secure and safe throughout their entire lifecycle so
+                                that, in conditions of
+                                normal use, foreseeable use or misuse, or other adverse conditions, they function
+                                appropriately and do not pose
+                                unreasonable safety and/or security risks. Mechanisms should be in place, as
+                                appropriate, to ensure that if AI systems
+                                risk causing undue harm or exhibit undesired behaviour, they can be overridden,
+                                repaired, and/or decommissioned safely
+                                as needed. Mechanisms should also, where technically feasible, be in place to
+                                bolster information integrity while
+                                ensuring respect for freedom of expression. AI Actors should commit to transparency
+                                and responsible disclosure regarding
+                                AI systems. To this end, they should provide meaningful information, appropriate to
+                                the context, and consistent with the
+                                state of art. AI actors, should, based on their roles, the context, and their
+                                ability to act, apply a systematic risk
+                                management approach to each phase of the AI system lifecycle on an ongoing basis and
+                                adopt responsible business conduct
+                                to address risks related to AI systems.
+                                <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
+                                Ensure safe, secure and trustworthy AI.
+                                <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf"
+                                    target="_blank">(UNITED NATIONS).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1723,28 +1749,30 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Explainable & interpretable
                         </a>
-                        <div id="principle3" style="display:none;">
-                            <div id="principle3-title">Explainable & interpretable</div>
-                            <div id="principle3-contents">
-                                <p>
-                                    Explainability answers the question of “how” a decision was made in the system. It
-                                    is a representation of the mechanisms
-                                    underlying AI systems’ operation. Explainable systems can be debugged and monitored
-                                    more easily, and they lend
-                                    themselves to more thorough documentation, audit, and governance. Interpetatiblity
-                                    answers the question of “why” a
-                                    decision was made by the system and its meaning or context to the user. It is the
-                                    meaning of AI systems’ output in the
-                                    context of their designed functional purposes. Together, explainability and
-                                    interpretability provide deeper insights
-                                    into the functionality and trustworthiness of the system, including its outputs.
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Commission independent audits.
-                                    <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf" target="_blank">(UNITED NATIONS).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle3" style="display:none;">
+                        <div id="principle3-title">Explainable & interpretable</div>
+                        <div id="principle3-contents">
+                            <p>
+                                Explainability answers the question of “how” a decision was made in the system. It
+                                is a representation of the mechanisms
+                                underlying AI systems’ operation. Explainable systems can be debugged and monitored
+                                more easily, and they lend
+                                themselves to more thorough documentation, audit, and governance. Interpetatiblity
+                                answers the question of “why” a
+                                decision was made by the system and its meaning or context to the user. It is the
+                                meaning of AI systems’ output in the
+                                context of their designed functional purposes. Together, explainability and
+                                interpretability provide deeper insights
+                                into the functionality and trustworthiness of the system, including its outputs.
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Commission independent audits.
+                                <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf"
+                                    target="_blank">(UNITED NATIONS).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1771,43 +1799,46 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Privacy-enhanced
                         </a>
-                        <div id="principle4" style="display:none;">
-                            <div id="principle4-title">Privacy-enhanced</div>
-                            <div id="principle4-contents">
-                                <p>
-                                    Privacy safeguards human autonomy, identity, and dignity. Privacy values such as
-                                    anonymity, confidentiality, and control
-                                    generally should guide choices for AI system design, development, and deployment. AI
-                                    systems can also present new risks
-                                    to privacy by allowing inference to identify individuals or previously private
-                                    information about individuals.
-
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Ensure legal authority for collecting and using personal information; when consent
-                                    is the legal authority, it should be
-                                    valid and meaningful. Collection, use and disclosure of personal information should
-                                    only be for appropriate purposes.
-                                    Establish the necessity and proportionality of using generative AI, and personal
-                                    information within generative AI
-                                    systems, to achieve intended purposes. Be open and transparent about the collection,
-                                    use and disclosure of personal
-                                    information and the potential risks to individuals’ privacy. Establish
-                                    accountability for compliance with privacy
-                                    legislation and principles and make AI tools explainable. Facilitate individuals’
-                                    right to access their personal
-                                    information by developing procedures that enable it to be meaningfully exercised.
-                                    Limit the collection, use, and
-                                    disclosure of personal information to only what is needed to fulfill the explicitly
-                                    specified, appropriate identified
-                                    purpose. Personal information must be as accurate, complete, and up-to-date as is
-                                    necessary for purposes for which it is
-                                    to be used. Establish safeguards to protect personal information and mitigate
-                                    potential privacy risks.
-                                    <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/" target="_blank">(CANADA).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+
+                    <div id="principle4" style="display:none;">
+                        <div id="principle4-title">Privacy-enhanced</div>
+                        <div id="principle4-contents">
+                            <p>
+                                Privacy safeguards human autonomy, identity, and dignity. Privacy values such as
+                                anonymity, confidentiality, and control
+                                generally should guide choices for AI system design, development, and deployment. AI
+                                systems can also present new risks
+                                to privacy by allowing inference to identify individuals or previously private
+                                information about individuals.
+
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Ensure legal authority for collecting and using personal information; when consent
+                                is the legal authority, it should be
+                                valid and meaningful. Collection, use and disclosure of personal information should
+                                only be for appropriate purposes.
+                                Establish the necessity and proportionality of using generative AI, and personal
+                                information within generative AI
+                                systems, to achieve intended purposes. Be open and transparent about the collection,
+                                use and disclosure of personal
+                                information and the potential risks to individuals’ privacy. Establish
+                                accountability for compliance with privacy
+                                legislation and principles and make AI tools explainable. Facilitate individuals’
+                                right to access their personal
+                                information by developing procedures that enable it to be meaningfully exercised.
+                                Limit the collection, use, and
+                                disclosure of personal information to only what is needed to fulfill the explicitly
+                                specified, appropriate identified
+                                purpose. Personal information must be as accurate, complete, and up-to-date as is
+                                necessary for purposes for which it is
+                                to be used. Establish safeguards to protect personal information and mitigate
+                                potential privacy risks.
+                                <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/"
+                                    target="_blank">(CANADA).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1834,39 +1865,42 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Fairness and management of bias
                         </a>
-                        <div id="principle5" style="display:none;">
-                            <div id="principle5-title">Fairness and management of bias</div>
-                            <div id="principle5-contents">
-                                <p>
-                                    Fairness in AI includes concerns for equality and equity by addressing issues such
-                                    as harmful bias and discrimination.
-                                    Bias is broader than demographic balance and data representativeness and can occur
-                                    in the absence of prejudice,
-                                    partiality, or discriminatory intent. Systemic bias can be present in AI datasets,
-                                    the organizational norms, practices,
-                                    and processes across the AI lifecycle, and the broader society that uses AI systems.
-                                    Computational and statistical
-                                    biases can be present in AI datasets and algorithmic processes, and often stem from
-                                    systematic errors due to
-                                    non-representative samples. Human-cognitive biases relate to how an individual or
-                                    group perceives AI system information
-                                    to make a decision or fill in missing information, or how humans think about
-                                    purposes and functions of an AI system.
-
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Engage with affected stakeholders before deployment
-                                    <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/" target="_blank">(CANADA).</a>
-                                    Unfair bias could have multiple negative
-                                    implications, from the marginalization of vulnerable groups to the exacerbation of
-                                    prejudice and discrimination.
-                                    Fostering diversity, AI systems should be accessible to all, regardless of any
-                                    disability, and involve relevant
-                                    stakeholders throughout their entire life circle.
-                                    <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" target="_blank">(EUROPEAN COMMISSION).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle5" style="display:none;">
+                        <div id="principle5-title">Fairness and management of bias</div>
+                        <div id="principle5-contents">
+                            <p>
+                                Fairness in AI includes concerns for equality and equity by addressing issues such
+                                as harmful bias and discrimination.
+                                Bias is broader than demographic balance and data representativeness and can occur
+                                in the absence of prejudice,
+                                partiality, or discriminatory intent. Systemic bias can be present in AI datasets,
+                                the organizational norms, practices,
+                                and processes across the AI lifecycle, and the broader society that uses AI systems.
+                                Computational and statistical
+                                biases can be present in AI datasets and algorithmic processes, and often stem from
+                                systematic errors due to
+                                non-representative samples. Human-cognitive biases relate to how an individual or
+                                group perceives AI system information
+                                to make a decision or fill in missing information, or how humans think about
+                                purposes and functions of an AI system.
+
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Engage with affected stakeholders before deployment
+                                <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/"
+                                    target="_blank">(CANADA).</a>
+                                Unfair bias could have multiple negative
+                                implications, from the marginalization of vulnerable groups to the exacerbation of
+                                prejudice and discrimination.
+                                Fostering diversity, AI systems should be accessible to all, regardless of any
+                                disability, and involve relevant
+                                stakeholders throughout their entire life circle.
+                                <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+                                    target="_blank">(EUROPEAN COMMISSION).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1892,32 +1926,34 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Valid & Reliable
                         </a>
-                        <div id="principle6" style="display:none;">
-                            <div id="principle6-title">Valid & Reliable</div>
-                            <div id="principle6-contents">
-                                <p>
-                                    Validity and reliability for deployed AI systems are often assessed by ongoing
-                                    testing or monitoring that confirms a
-                                    system is performing as intended. Measurement of validity, accuracy, robustness, and
-                                    reliability contribute to
-                                    trustworthiness and should take into consideration that certain types of failures
-                                    can cause greater harm. AI risk
-                                    management efforts should prioritize the minimization of potential negative impacts,
-                                    and may need to include human
-                                    intervention in cases where the AI system cannot detect or correct errors.
-
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Make sure the use of generative AI
-                                    tools supports user and organizational needs and contributes to better outcomes for
-                                    clients; consider the environmental
-                                    impacts when choosing to use a tool; identify appropriate tools for the task; AI
-                                    tools aren’t the best choice in every
-                                    situation.
-                                    <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html" target="_blank">(CANADA, FASTER PRINCIPLES).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle6" style="display:none;">
+                        <div id="principle6-title">Valid & Reliable</div>
+                        <div id="principle6-contents">
+                            <p>
+                                Validity and reliability for deployed AI systems are often assessed by ongoing
+                                testing or monitoring that confirms a
+                                system is performing as intended. Measurement of validity, accuracy, robustness, and
+                                reliability contribute to
+                                trustworthiness and should take into consideration that certain types of failures
+                                can cause greater harm. AI risk
+                                management efforts should prioritize the minimization of potential negative impacts,
+                                and may need to include human
+                                intervention in cases where the AI system cannot detect or correct errors.
+
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Make sure the use of generative AI
+                                tools supports user and organizational needs and contributes to better outcomes for
+                                clients; consider the environmental
+                                impacts when choosing to use a tool; identify appropriate tools for the task; AI
+                                tools aren’t the best choice in every
+                                situation.
+                                <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html"
+                                    target="_blank">(CANADA, FASTER PRINCIPLES).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -1947,77 +1983,82 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Accountable & Transparent
                         </a>
-                        <div id="principle7" style="display:none;">
-                            <div id="principle7-title">Accountable & Transparent</div>
-                            <div id="principle7-contents">
-                                <p>
-                                    The role of AI actors should be considered when seeking accountability for the
-                                    outcomes of AI systems. Maintaining
-                                    organizational practices and governing structures for harm reduction, like risk
-                                    management, can help lead to more
-                                    accountable systems. Accountability presupposes transparency. Transparency reflects
-                                    the extent to which information
-                                    about an AI system and its outputs is available to individuals interacting with such
-                                    a system. Maintaining the
-                                    provenance of training data and supporting attribution of the AI system’s decisions
-                                    to subsets of training data can
-                                    assist with both transparency and accountability. Transparency can answer the
-                                    question of “what happened” in the system.
-
-
-                                    <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics" target="_blank">(NIST).</a>
-                                    Accountability includes making sure generated content is accurate, legal, ethical,
-                                    and compliant with the terms
-                                    of use; establish monitoring and oversight mechanisms. Transparency includes
-                                    identifying content that has been produced
-                                    using generative AI, notifying users that they are interacting with an AI tool,
-                                    providing information on institutional
-                                    policies, appropriate use, training data and the model when deploying these tools,
-                                    and documenting decisions and be able
-                                    to provide explanations if tools are used to support decision-making
-
-                                    <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/" target="_blank">(CANADA).</a>
-                                    AI actors should ensure traceability,
-                                    including in relation to datasets, processes and decisions made during the AI system
-                                    lifecycle, to enable analysis of
-                                    the AI system’s outputs and responses to inquiry, appropriate to the context and
-                                    consistent with the state of the art.
-                                    AI actors, should, based on their roles, the context, and their ability to act,
-                                    apply a systematic risk management
-                                    approach to each phase of the AI system lifecycle on an ongoing basis and adopt
-                                    responsible business conduct to address
-                                    risks related to AI systems.
-
-                                    <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a> The data, system and AI business models
-                                    should be transparent. Traceability
-                                    mechanisms can help achieving this. Moreover, AI systems and their decisions should
-                                    be explained in a manner adapted to
-                                    the stakeholder concerned. Humans need to be aware that they are interacting with an
-                                    AI system, and must be informed of
-                                    the system’s capabilities and limitations. Mechanisms should be put in place to
-                                    ensure responsibility and accountability
-                                    for AI systems and their outcomes. Auditability, which enables the assessment of
-                                    algorithms, data and design processes
-                                    plays a key role therein, especially in critical applications. Moreover, adequate an
-                                    accessible redress should be
-                                    ensured.
-
-                                    <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" target="_blank">(EUROPEAN COMMISSION).</a>
-                                    The ethical responsibility and liability for the decisions and actions based in any
-                                    way
-                                    on an AI system should always ultimately be attributable to AI actors corresponding
-                                    to their role in the life cycle of
-                                    the AI system. Appropriate oversight, impact assessment, audit and due diligence
-                                    mechanisms, including whistleblowers’
-                                    protection, should be developed to ensure accountability for AI systems and their
-                                    impact throughout their life
-                                    cycle. 
-                                    <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455" target="_blank">(UNESCO).</a>
-
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle7" style="display:none;">
+                        <div id="principle7-title">Accountable & Transparent</div>
+                        <div id="principle7-contents">
+                            <p>
+                                The role of AI actors should be considered when seeking accountability for the
+                                outcomes of AI systems. Maintaining
+                                organizational practices and governing structures for harm reduction, like risk
+                                management, can help lead to more
+                                accountable systems. Accountability presupposes transparency. Transparency reflects
+                                the extent to which information
+                                about an AI system and its outputs is available to individuals interacting with such
+                                a system. Maintaining the
+                                provenance of training data and supporting attribution of the AI system’s decisions
+                                to subsets of training data can
+                                assist with both transparency and accountability. Transparency can answer the
+                                question of “what happened” in the system.
+
+
+                                <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"
+                                    target="_blank">(NIST).</a>
+                                Accountability includes making sure generated content is accurate, legal, ethical,
+                                and compliant with the terms
+                                of use; establish monitoring and oversight mechanisms. Transparency includes
+                                identifying content that has been produced
+                                using generative AI, notifying users that they are interacting with an AI tool,
+                                providing information on institutional
+                                policies, appropriate use, training data and the model when deploying these tools,
+                                and documenting decisions and be able
+                                to provide explanations if tools are used to support decision-making
+
+                                <a href="https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/"
+                                    target="_blank">(CANADA).</a>
+                                AI actors should ensure traceability,
+                                including in relation to datasets, processes and decisions made during the AI system
+                                lifecycle, to enable analysis of
+                                the AI system’s outputs and responses to inquiry, appropriate to the context and
+                                consistent with the state of the art.
+                                AI actors, should, based on their roles, the context, and their ability to act,
+                                apply a systematic risk management
+                                approach to each phase of the AI system lifecycle on an ongoing basis and adopt
+                                responsible business conduct to address
+                                risks related to AI systems.
+
+                                <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a> The data, system
+                                and AI business models
+                                should be transparent. Traceability
+                                mechanisms can help achieving this. Moreover, AI systems and their decisions should
+                                be explained in a manner adapted to
+                                the stakeholder concerned. Humans need to be aware that they are interacting with an
+                                AI system, and must be informed of
+                                the system’s capabilities and limitations. Mechanisms should be put in place to
+                                ensure responsibility and accountability
+                                for AI systems and their outcomes. Auditability, which enables the assessment of
+                                algorithms, data and design processes
+                                plays a key role therein, especially in critical applications. Moreover, adequate an
+                                accessible redress should be
+                                ensured.
+
+                                <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+                                    target="_blank">(EUROPEAN COMMISSION).</a>
+                                The ethical responsibility and liability for the decisions and actions based in any
+                                way
+                                on an AI system should always ultimately be attributable to AI actors corresponding
+                                to their role in the life cycle of
+                                the AI system. Appropriate oversight, impact assessment, audit and due diligence
+                                mechanisms, including whistleblowers’
+                                protection, should be developed to ensure accountability for AI systems and their
+                                impact throughout their life
+                                cycle. 
+                                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455"
+                                    target="_blank">(UNESCO).</a>
+
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -2042,52 +2083,55 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Human-centred values
                         </a>
-                        <div id="principle8" style="display:none;">
-                            <div id="principle8-title">Human-centred values</div>
-                            <div id="principle8-contents">
-                                <p>
-                                    All actors should respect the rule of law, human rights, democratic and
-                                    human-centred values throughout the AI system
-                                    lifecycle. These include non-discrimination and equality, freedom, dignity, autonomy
-                                    of individuals, privacy and data
-                                    protection, diversity, fairness, social justice, and internationally recognised
-                                    labour rights. This also includes
-                                    addressing misinformation and disinformation amplified by AI, while respecting
-                                    freedom of expression and other rights
-                                    and freedoms protected by applicable international law. To this end, AI actors
-                                    should implement mechanisms and
-                                    safeguards, such as capacity for human agency and oversight, including to address
-                                    risks arising from uses outside of
-                                    intended purpose, intentional misuse, or unintentional misuse in a manner
-                                    appropriate to the context and consistent with
-                                    the state of the art.
-
-                                    <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
-                                    AI systems should empower human beings, allowing them to make informed decisions and
-                                    fostering their fundamental rights. At the same time, proper oversight mechanisms
-                                    need to be ensured, which can be
-                                    achieved through human-in-the-loop, human-on-the-loop, and human-in-command
-                                    approaches.
-
-                                    <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" target="_blank">(EUROPEAN COMMISSION).</a> AI actors
-                                    should respect, protect and promote human rights and fundamental freedoms, and
-                                    should also promote the protection of the
-                                    environment and ecosystems, assuming their respective ethical and legal
-                                    responsibility, in accordance with national and
-                                    international law, in particular human rights obligations, and ethical guidance
-                                    throughout the life cycle of AI systems.
-
-                                    <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455" target="_blank">(UNESCO).</a>
-                                    Invest at the organizational level in the development and deployment of literacy
-                                    initiatives to enhance public
-                                    understanding of how AI models function and the implications for information
-                                    consumers globally, with a focus on risks
-                                    to information integrity.
-                                    <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf" target="_blank">(UNITED NATIONS).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle8" style="display:none;">
+                        <div id="principle8-title">Human-centred values</div>
+                        <div id="principle8-contents">
+                            <p>
+                                All actors should respect the rule of law, human rights, democratic and
+                                human-centred values throughout the AI system
+                                lifecycle. These include non-discrimination and equality, freedom, dignity, autonomy
+                                of individuals, privacy and data
+                                protection, diversity, fairness, social justice, and internationally recognised
+                                labour rights. This also includes
+                                addressing misinformation and disinformation amplified by AI, while respecting
+                                freedom of expression and other rights
+                                and freedoms protected by applicable international law. To this end, AI actors
+                                should implement mechanisms and
+                                safeguards, such as capacity for human agency and oversight, including to address
+                                risks arising from uses outside of
+                                intended purpose, intentional misuse, or unintentional misuse in a manner
+                                appropriate to the context and consistent with
+                                the state of the art.
+
+                                <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
+                                AI systems should empower human beings, allowing them to make informed decisions and
+                                fostering their fundamental rights. At the same time, proper oversight mechanisms
+                                need to be ensured, which can be
+                                achieved through human-in-the-loop, human-on-the-loop, and human-in-command
+                                approaches.
+
+                                <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+                                    target="_blank">(EUROPEAN COMMISSION).</a> AI actors
+                                should respect, protect and promote human rights and fundamental freedoms, and
+                                should also promote the protection of the
+                                environment and ecosystems, assuming their respective ethical and legal
+                                responsibility, in accordance with national and
+                                international law, in particular human rights obligations, and ethical guidance
+                                throughout the life cycle of AI systems.
+
+                                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455"
+                                    target="_blank">(UNESCO).</a>
+                                Invest at the organizational level in the development and deployment of literacy
+                                initiatives to enhance public
+                                understanding of how AI models function and the implications for information
+                                consumers globally, with a focus on risks
+                                to information integrity.
+                                <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf"
+                                    target="_blank">(UNITED NATIONS).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -2112,35 +2156,37 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             Inclusive growth, sustainable development, and well-being
                         </a>
-                        <div id="principle9" style="display:none;">
-                            <div id="principle9-title">Inclusive growth, sustainable development, and well-being</div>
-                            <div id="principle9-contents">
-                                <p>
-                                    Stakeholders should proactively engage in responsible stewardship of trustworthy AI
-                                    in pursuit of beneficial outcomes
-                                    for people and the planet, such as augmenting human capabilities and enhancing
-                                    creativity, advancing inclusion of
-                                    underrepresented populations, reducing economic, social, gender and other
-                                    inequalities, and protecting natural
-                                    environments, thus invigorating inclusive growth, well-being, sustainable
-                                    development and environmental sustainability.
-
-                                    <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
-                                    AI systems should benefit all human beings, including future generations. It must
-                                    hence be ensured that they are
-                                    sustainable and environmentally friendly. Moreover, they should take into account
-                                    the environment, including other
-                                    living beings, and their social and societal impact should be carefully considered.
-
-                                    <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455" target="_blank">(UNESCO).</a> Provide users the ability
-                                    to alert or report inaccurate or misleading provenance information, while protecting
-                                    user privacy.
-
-                                    <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf" target="_blank">(UNITED NATIONS).</a>
-                                </p>
-                            </div>
-                        </div>
                     </td>
+                    <div id="principle9" style="display:none;">
+                        <div id="principle9-title">Inclusive growth, sustainable development, and well-being</div>
+                        <div id="principle9-contents">
+                            <p>
+                                Stakeholders should proactively engage in responsible stewardship of trustworthy AI
+                                in pursuit of beneficial outcomes
+                                for people and the planet, such as augmenting human capabilities and enhancing
+                                creativity, advancing inclusion of
+                                underrepresented populations, reducing economic, social, gender and other
+                                inequalities, and protecting natural
+                                environments, thus invigorating inclusive growth, well-being, sustainable
+                                development and environmental sustainability.
+
+                                <a href="https://oecd.ai/en/ai-principles" target="_blank">(OECD).</a>
+                                AI systems should benefit all human beings, including future generations. It must
+                                hence be ensured that they are
+                                sustainable and environmentally friendly. Moreover, they should take into account
+                                the environment, including other
+                                living beings, and their social and societal impact should be carefully considered.
+
+                                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380455"
+                                    target="_blank">(UNESCO).</a> Provide users the ability
+                                to alert or report inaccurate or misleading provenance information, while protecting
+                                user privacy.
+
+                                <a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf"
+                                    target="_blank">(UNITED NATIONS).</a>
+                            </p>
+                        </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -2433,7 +2479,7 @@
                         </label>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="col1">
                         Algorithms and models are appropriate and verifiable.
@@ -2811,7 +2857,8 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist61" data-answer="yes" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist61" data-answer="yes" value="0"
+                                onclick="update_checklist()">
                     </td>
                 </tr>
 
@@ -4006,7 +4053,8 @@
                         <div id="ref1-title"> International </div>
                         <div id="ref1-contents">
                             <ul>
-                                <li><a href="https://gpai.ai/" target="_blank">Global Partnership on Artificial Intelligence - GPAI</a></li>
+                                <li><a href="https://gpai.ai/" target="_blank">Global Partnership on Artificial
+                                        Intelligence - GPAI</a></li>
                                 <li>
                                     <a href="https://www.gov.uk/government/publications/international-scientific-report-on-the-safety-of-advanced-ai"
                                         target="_blank">
@@ -4029,7 +4077,8 @@
                                         UNESCO Recommendation on the ethics of AI</a>
                                 </li>
                                 <li><a href="https://www.un.org/sites/un2.un.org/files/un-global-principles-for-information-integrity-en.pdf"
-                                        target="_blank">United Nations Global Principles for Information Integrity </a></li>
+                                        target="_blank">United Nations Global Principles for Information Integrity </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -4074,7 +4123,8 @@
                                         target="_blank">
                                         Directive on Automated Decision-Making</a></li>
                                 <li><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/medical-devices/good-machine-learning-practice-medical-device-development.html"
-                                        target="_blank">Good machine learning practice guiding principles (Health Canada) </a></li>
+                                        target="_blank">Good machine learning practice guiding principles (Health
+                                        Canada) </a></li>
                                 <li><a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html"
                                         target="_blank">Guide on the Use of Generative Artificial Intelligence</a>
                                 </li>
@@ -4111,8 +4161,9 @@
                                 <li><a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/responsible-use-ai.html"
                                         target="_blank">
                                         Responsible Use of Artificial Intelligence in Government</a></li>
-                                <li><a href="https://www.statcan.gc.ca/en/data-science/network/automated-systems" target="_blank">Responsible use of
-                                                automated decision systems</a></li>
+                                <li><a href="https://www.statcan.gc.ca/en/data-science/network/automated-systems"
+                                        target="_blank">Responsible use of
+                                        automated decision systems</a></li>
                             </ul>
                         </div>
                     </div>
