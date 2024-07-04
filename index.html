@@ -269,6 +269,11 @@
             };
 
             total_max = score_list.reduce((a, b) => a + b, 0); // add all points for the grand total
+            const admin_no = checklist.querySelector('input[type="radio"][data-answer="no"].admin')
+           
+            if (admin_no.checked) {
+                total_max -= 4
+            }
 
             // Update the total score or perform any other actions with it
             $("#checklist-score").html("Your use of this AI application is " + Math.round((totalScore / total_max) * 100) + "% safe")
