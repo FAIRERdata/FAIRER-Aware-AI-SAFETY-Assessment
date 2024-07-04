@@ -275,8 +275,13 @@
                 total_max -= 4
             }
 
+            let final_score =  Math.round((totalScore / total_max) * 100);
+            if (final_score > 100) {
+                final_score = 100;
+            }
+
             // Update the total score or perform any other actions with it
-            $("#checklist-score").html("Your use of this AI application is " + Math.round((totalScore / total_max) * 100) + "% safe")
+            $("#checklist-score").html("Your use of this AI application is " + final_score + "% safe")
         }
 
         // 
