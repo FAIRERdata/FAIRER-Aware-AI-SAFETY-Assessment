@@ -194,6 +194,16 @@
         }
 
         function update_checklist() {
+
+            // Administrative decision-making 
+            const admin_yes = document.querySelector('input[type="radio"][data-answer="yes"].admin')
+            const not_completed = document.querySelector('input[type="radio"][data-answer="not_completed"]')
+
+            if (not_completed.checked && admin_yes.checked) {
+                alert("Administrative decision-making requires the completion of the Algorithmic Impact Assessment")
+                not_completed.checked = false;
+            }
+
             // Unclicking previous choices when clicking on not tested and vice versa 
             const not_tested_list = document.querySelectorAll('input[type="radio"][data-answer="yes"].ntest,input[type="checkbox"].ntest')
             var start = not_tested_list[0].name.replace(/[^0-9]/g, '');
@@ -650,10 +660,10 @@
                         <center><img src="images/question_images/lifecycle.png" height="350"
                                 style="padding-bottom: 3px;">
                             <br>
-                            <div class="panel-group" id="accordion2" style="width:635px;">
-                                <div class="panel panel-default">
+                            <div class="panel-group" id="accordion2" style="width:700px; border-style: hidden;">
+                                <div class="panel panel-default" style="box-shadow: none; border: none;">
                                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2"
-                                        href="#description2" style="padding:2px 2px 3px 3px;">
+                                        href="#description2" style="padding:2px 2px 3px 3px; width: 100px;">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion2" href="#description2"
                                                 style="font-size:10px; height:10px;">
@@ -1129,17 +1139,20 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist15" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist15" class="admin" data-answer="yes" value="0"
+                                onclick="update_checklist()">
                             &nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
 
                         <label>
-                            <input type="radio" name="checklist15" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist15" class="admin" data-answer="no" value="0"
+                                onclick="update_checklist()">
                             &nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
 
                         <label>
-                            <input type="radio" name="checklist15" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist15" class="admin" data-answer="dk" value="0"
+                                onclick="update_checklist()">
                             &nbsp;Don't know
                         </label>
 
@@ -1359,7 +1372,8 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" value="0" onclick="update_checklist()">
+                            <input type="radio" name="checklist23" data-answer="not_completed" value="0"
+                                onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -1580,10 +1594,10 @@
                         <center><img src="images/question_images/principles.png" height="170"
                                 style="padding-bottom: 3px;">
                             <br>
-                            <div class="panel-group" id="accordion1" style="width:635px;">
-                                <div class="panel panel-default">
+                            <div class="panel-group" id="accordion1" style="width: 700px;">
+                                <div class="panel panel-default" style="box-shadow: none; border: none;">
                                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion1"
-                                        href="#description1" style="padding:2px 2px 3px 3px;">
+                                        href="#description1" style="padding:2px 2px 3px 3px; width: 100px;">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion1" href="#description1"
                                                 style="font-size:10px; height:10px;">
