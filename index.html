@@ -232,48 +232,6 @@
                 });
             }
 
-            // When user selected no for using machine learning as a method but selected yes to 
-            // machine learning tools/methods
-            /*
-                        const ml_no = document.querySelector('input[data-answer="no"].ml') // gets the choice of no for machine learning
-                        const ml_checklist = document.querySelectorAll('input[data-answer="yes"].ml') // gets yes's for tools
-            
-                        if (ml_no.checked && (ml_checklist[1].checked || ml_checklist[2].checked)) {
-                            alert('In the previous question, no was selected for the method used for the AI application');
-                            ml_checklist[1].checked = false;
-                            ml_checklist[2].checked = false;
-                        }
-            
-                        // When user selected no for using deep learning as a method but selected yes to deep learning
-                        // tools and methods
-                        const dl_no = document.querySelector('input[data-answer="no"].dl') // gets the choice of no for deep learning
-                        const dl_checklist = document.querySelectorAll('input[data-answer="yes"].dl') // gets yes's for tools
-            
-                        if (dl_no.checked && dl_checklist[1].checked) {
-                            alert('In the previous question, no was selected for the method used for the AI application');
-                            dl_checklist[1].checked = false;
-                        }
-            
-                        // When user selected no for using computer vision as a method but selected yes to computer vision
-                        // tools and methods
-                        const cv_no = document.querySelector('input[data-answer="no"].cv') // gets the choice of no for computer vision
-                        const cv_checklist = document.querySelectorAll('input[data-answer="yes"].cv') // gets yes's for tools
-            
-                        if (cv_no.checked && cv_checklist[1].checked) {
-                            alert('In the previous question, no was selected for the method used for the AI application');
-                            cv_checklist[1].checked = false;
-                        }
-            
-                        // When user selected no for NLP practical use but selects yes for NLP tools/methods
-            
-                        const nlp_no = document.querySelector('input[data-answer="no"].nlp') // gets the choice of no for NLP
-                        const nlp_checklist = document.querySelectorAll('input[data-answer="yes"].nlp') // gets yes's for tools
-            
-                        if (nlp_no.checked && nlp_checklist[1].checked) {
-                            alert('In the previous question, no was selected for the method used for the AI application');
-                            nlp_checklist[1].checked = false;
-                        }
-                            */
 
             // Clear and Check for Total Score
             let totalScore = 0;
@@ -334,12 +292,32 @@
             });
         }
 
+
+        function check_administrative() {
+            const admin_yes = document.querySelector('input[type="radio"][data-answer="yes"].admin')
+            const algorithmic = document.querySelectorAll('input[type="radio"].admin')
+            let algorithmic_array = Array.from(algorithmic).slice(3);
+            let array_size = algorithmic_array.length;
+            algorithmic_array.forEach(radioButton => {
+                if (!radioButton.checked && admin_yes.checked) {
+                    array_size -= 1
+                }
+            });
+            if (array_size == 0) {
+                alert("Administrative decision-making requires the completion of the Algorithmic Impact Assessment. Please complete question 4. I have completed an Algorithmic Impact Assessment and the score was")
+                return false
+            }
+            return true
+        }
+
+
+
         /* validate_answers checks if the user has answered each question, if not brings a modal window
-            showing all unanswered questions. If the user has answered all questions, directly brings 
-            print popup
+                showing all unanswered questions. If the user has answered all questions, directly brings 
+                print popup
         */
         function validate_answers() {
-
+            const clear = check_administrative();
             // Array of group names
             const total_questions = get_total_questions(); // get total questions
             const checklist = document.getElementById("checklist-table");
@@ -388,7 +366,7 @@
                 print_page();
             }
             // brings up modal popup window
-            else {
+            else if (clear != false) {
                 show_modal('unanswered-questions', '#modal-print');
             }
         }
@@ -415,9 +393,6 @@
         </div>
 
         <div class="intro" id="intro">
-            <p style="font-size: 20px;">
-                <b>UNDER DEVELOPMENT</b>
-            </p>
             <div id="intro-box">
                 <br>
                 <p>
@@ -1328,7 +1303,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" value="4" onclick="update_checklist()">
+                            <input type="radio" name="checklist23" class="admin" value="4" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -1339,7 +1314,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" value="3" onclick="update_checklist()">
+                            <input type="radio" name="checklist23" class="admin" value="3" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -1350,7 +1325,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" value="2" onclick="update_checklist()">
+                            <input type="radio" name="checklist23" class="admin" value="2" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -1361,7 +1336,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" value="1" onclick="update_checklist()">
+                            <input type="radio" name="checklist23" class="admin" value="1" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -1372,7 +1347,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                            <input type="radio" name="checklist23" data-answer="not_completed" value="0"
+                            <input type="radio" name="checklist23" class="admin" data-answer="not_completed" value="0"
                                 onclick="update_checklist()">
                         </label>
                     </td>
