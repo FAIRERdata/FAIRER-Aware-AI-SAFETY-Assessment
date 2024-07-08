@@ -320,8 +320,6 @@
             return true
         }
 
-
-
         /* validate_answers checks if the user has answered each question, if not brings a modal window
                 showing all unanswered questions. If the user has answered all questions, directly brings 
                 print popup
@@ -336,8 +334,22 @@
             let unanswered = []; // initialize array for storing each unanswered question
             let unperfected_answers = [];
             let unperfected_string = [];
+
+            let max = 0;
+            let score_list = [];
+            for (let i = 1; i <= total_questions; i++) {
+                const radio_group = checklist.querySelectorAll(`input[type="radio"][name="checklist${i}"], input[type="checkbox"][name="checklist${i}"]`);
+                radio_group.forEach(radioButton => {
+                    const value = parseInt(radioButton.value); // get value of the radio button in the group
+                    max = Math.max(max, value); // get the max score out of each radio button group
+                });
+                score_list.push(max) // add the max point choice onto the array
+                max = 0; // reset max
+            };
+
             for (let i = 1; i <= total_questions; i++) {
                 const radio_group = checklist.querySelectorAll(`input[name="checklist${i}"]`);
+                const point_question = score_list[i]
                 // gets the question section (green numbered header)
                 const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
                 // gets the specific question in the question section
@@ -350,7 +362,7 @@
              
                     if (radioButton.checked) {
                         question_group_num -= 1;
-                        if (answer_type != "Yes") {
+                        if (answer_type != "Yes" && point_question != 0) {
                             if (question_name != "76%-100% (High)" || question_name != "0-25% (level I, Little to no impact)." ||
                                 question_name != "Other") {
                                
