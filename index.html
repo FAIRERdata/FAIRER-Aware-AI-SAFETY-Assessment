@@ -325,6 +325,8 @@
         /* validate_answers checks if the user has answered each question, if not brings a modal window
                 showing all unanswered questions. If the user has answered all questions, directly brings 
                 print popup
+
+            Also tells the user which questions may be improved on 
         */
         function validate_answers() {
             const clear = check_administrative();
@@ -332,24 +334,35 @@
             const total_questions = get_total_questions(); // get total questions
             const checklist = document.getElementById("checklist-table");
             let unanswered = []; // initialize array for storing each unanswered question
-
+            let unperfected_answers = [];
+            let unperfected_string = [];
             for (let i = 1; i <= total_questions; i++) {
                 const radio_group = checklist.querySelectorAll(`input[name="checklist${i}"]`);
-                let question_group_num = Array.from(radio_group).length; // number of choices per radio group
+                // gets the question section (green numbered header)
+                const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
+                // gets the specific question in the question section
+                const question_name = radio_group[0].closest("tr").childNodes[1].textContent.trim();
 
+                let question_group_num = Array.from(radio_group).length; // number of choices per radio group
                 radio_group.forEach(radioButton => {
+                   
+                    const answer_type = radioButton.closest("label").innerText.trim();
+             
                     if (radioButton.checked) {
                         question_group_num -= 1;
+                        if (answer_type != "Yes") {
+                            if (question_name != "76%-100% (High)" || question_name != "0-25% (level I, Little to no impact)." ||
+                                question_name != "Other") {
+                               
+                                unperfected_answers.push(radioButton);
+                                
+                            }
+                        }
                     }
                 });
-
+              
                 // if none of the buttons in the group is checked, the length is the same
                 if (question_group_num == Array.from(radio_group).length) {
-
-                    // gets the question section (green numbered header)
-                    const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
-                    // gets the specific question in the question section
-                    const question_name = radio_group[0].closest("tr").childNodes[1].textContent.trim();
 
                     // "Other" and "Not tested" are both checkboxes, so it skips to the next since 
                     // the checkbox may be unchecked purposefully  
@@ -361,7 +374,23 @@
                     unanswered.push(question_string); // add the unanswered question onto the array
                 }
             };
+        
+        
+          var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
+            var unperfected_new = "<p> This feature is under development The following are suggestions for areas of improvement in your AI application </p><ul>";
 
+            for (let i = 0; i < unperfected_answers.length; i++) {
+                const question_name = unperfected_answers[i].closest("tr").childNodes[1].textContent.trim();
+                const question_category = unperfected_answers[i].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
+                const answer_type = unperfected_answers[i].closest("label").innerText.trim(); 
+                unperfected_new += "<li>" + question_name + " in section " + question_category + "</li>";
+                
+            }
+            unperfected_new += "</ul>"
+            var printed_content = document.getElementById('printed')
+            
+            printed_content.innerHTML += unperfected_new;
+           
             var modalContent = document.getElementById('unanswered-questions-contents');
             // fill modal contents using the array 
             var new_content = "<p>The following questions are unanswered. If you would still like to print, please press the print button at the bottom of this message.</p><ul>";
@@ -600,7 +629,9 @@
                     <td class="col1">Other</td>
                     <td class="col2">
                         <div></div>
+                        <label>
                         <input type="checkbox" name="checklist7" value="0" onclick="update_checklist()">
+                    </label>
                     </td>
                 </tr>
             </tbody>
@@ -1564,7 +1595,9 @@
                     </td>
                     <td class="col2">
                         <div></div>
+                        <label>
                         <input type="checkbox" name="checklist31" value="0" onclick="update_checklist()">&nbsp;
+                        </label>
                     </td>
                 </tr>
             </tbody>
@@ -2673,19 +2706,9 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="4"
                                 onclick="update_checklist()">
-                            <!--&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="no" value="0" onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="dk" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
 
-                        </label>
-                    -->
+                
                     </td>
                 </tr>
                 <tr>
@@ -2700,19 +2723,7 @@
                         <label>
                             <input type="radio" name="checklist61" class="ml" data-answer="yes" value="3"
                                 onclick="update_checklist()">
-                            <!--&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="ml" data-answer="no" value="0" onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="ml" data-answer="dk" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
-
-                        </label>
-                    -->
                     </td>
                 </tr>
                 <tr>
@@ -2741,21 +2752,9 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="2"
                                 onclick="update_checklist()">
-                            <!--&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
                         </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="no" value="0"
-                                onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="dk" value="0"
-                                onclick="update_checklist()">&nbsp; Don't
-                            know
-                
-                        </label>
-                    -->
+                    
                     </td>
                 </tr>
 
@@ -2771,19 +2770,8 @@
                         <label>
                             <input type="radio" name="checklist61" class="dl" data-answer="yes" value="1"
                                 onclick="update_checklist()">
-                            <!-- &nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="dl" data-answer="no"value="0" onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="dl" data-answer="dk" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
-
-                        </label>
-                    -->
+                           </label>
+                 
                     </td>
                 </tr>
                 <tr>
@@ -2798,18 +2786,9 @@
                         <label>
                             <input type="radio" name="checklist61" class="cv" data-answer="yes" value="0"
                                 onclick="update_checklist()">
-                            <!--&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
                         </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="cv" data-answer="no" value="0" onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" class="cv" data-answer="dk" value="0" onclick="update_checklist()">&nbsp; Don't
-                            know
-                        </label>
-                    -->
+                
                     </td>
                 </tr>
                 <tr>
@@ -2833,20 +2812,10 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="0"
                                 onclick="update_checklist()">
-                            <!--&nbsp;
-                            Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                          
                         </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="no" value="0"
-                                onclick="update_checklist()">&nbsp;
-                            No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label>
-                            <input type="radio" name="checklist61" data-answer="dk" value="0"
-                                onclick="update_checklist()">&nbsp; Don't
-                            know
-                        </label>
-                    -->
+                   
                     </td>
                 </tr>
                 <tr>
@@ -2858,6 +2827,7 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="0"
                                 onclick="update_checklist()">
+                        </label>
                     </td>
                 </tr>
 
@@ -3261,7 +3231,9 @@
                     </td>
                     <td class="col2">
                         <div></div>
+                        <label>
                         <input type="checkbox" name="checklist76" value="0" onclick="update_checklist()">
+                        </label>
                     </td>
                 </tr>
 
@@ -4600,25 +4572,25 @@
             </button>
         </div>
     </div>
-    <div class="noScreen">
+    <div id="printed" class="noScreen">
         <p>Scoring Rules</p>
         <p>
         <ul>
-            <li>Question 3 gives 4 points for "level I", 3 points for "level II", 2 points for "level III",
+            <li>Question 4 gives 4 points for "level I", 3 points for "level II", 2 points for "level III",
                 1 point for "level IV", and 0 for "Not completed"
             </li>
-            <li>Questions 5-8 give 4 points for each "Yes"</li>
-            <li>Question 9 gives 4 points for Rule-based expert system, 3 points for Machine Learning,
+            <li>Questions 6-9 give 4 points for each "Yes"</li>
+            <li>Question 10 gives 4 points for Rule-based expert system, 3 points for Machine Learning,
                 2 points for Neural Network, 1 point for Deep Learning, 0 points for Computer Vision and NLP/LLM
             </li>
-            <li>Question 11-12 gives 4 points for each "Yes"</li>
-            <li>Question 13 gives 4 points for "Yes" and 2 points for "Partially"</li>
-            <li>Question 14 gives 4 points for the "High", 3 for "Good", 2 for "Low", 1 for "Poor",
+            <li>Question 12-13 gives 4 points for each "Yes"</li>
+            <li>Question 14 gives 4 points for "Yes" and 2 points for "Partially"</li>
+            <li>Question 15 gives 4 points for the "High", 3 for "Good", 2 for "Low", 1 for "Poor",
                 and 0 for "Not completed"
             </li>
-            <li>Question 15 gives 4 points for each "Yes"</li>
+            <li>Question 16 gives 4 points for each "Yes"</li>
 
-            <li>Question 16 gives 4 points for each "Yes", 2 points for each "Some", except Other which gives 0 points
+            <li>Question 17 gives 4 points for each "Yes", 2 points for each "Some", except Other which gives 0 points
             </li>
             <li>All other questions give 0 points regardless of choice</li>
             <li>"N/A" choices and "Upon request only" give the same amount of points as selecting "Yes"</li>
@@ -5173,6 +5145,13 @@
             <div id="unanswered-questions-title"> Unanswered Questions</div>
             <div id="unanswered-questions-contents">
 
+            </div>
+        </div>
+
+        <div class="noScreen">
+            <div id="unperfected-answers-title">Improvement Suggestions</div>
+            <div id="unperfected-answers-contents" class="noScreen">
+        
             </div>
         </div>
 
