@@ -333,45 +333,39 @@
             const checklist = document.getElementById("checklist-table");
             let unanswered = []; // initialize array for storing each unanswered question
             let unperfected_answers = [];
-            let unperfected_string = [];
-
-            let max = 0;
-            let score_list = [];
-            for (let i = 1; i <= total_questions; i++) {
-                const radio_group = checklist.querySelectorAll(`input[type="radio"][name="checklist${i}"], input[type="checkbox"][name="checklist${i}"]`);
-                radio_group.forEach(radioButton => {
-                    const value = parseInt(radioButton.value); // get value of the radio button in the group
-                    max = Math.max(max, value); // get the max score out of each radio button group
-                });
-                score_list.push(max) // add the max point choice onto the array
-                max = 0; // reset max
-            };
 
             for (let i = 1; i <= total_questions; i++) {
                 const radio_group = checklist.querySelectorAll(`input[name="checklist${i}"]`);
-                const point_question = score_list[i]
                 // gets the question section (green numbered header)
                 const question_category = radio_group[0].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
                 // gets the specific question in the question section
                 const question_name = radio_group[0].closest("tr").childNodes[1].textContent.trim();
 
+                let question_point = [];
+                radio_group.forEach(radioButton => {
+                    const value = parseInt(radioButton.value); // get value of the radio button in the group
+                    question_point.push(value);
+                });
+                var max_point = Math.max.apply(null, question_point);
+               
                 let question_group_num = Array.from(radio_group).length; // number of choices per radio group
+                
                 radio_group.forEach(radioButton => {
                    
                     const answer_type = radioButton.closest("label").innerText.trim();
              
                     if (radioButton.checked) {
                         question_group_num -= 1;
-                        if (answer_type != "Yes" && point_question != 0) {
+                      
+                        if (answer_type != "Yes" && max_point != 0 && answer_type != "N/A") {
                             if (question_name != "76%-100% (High)" || question_name != "0-25% (level I, Little to no impact)." ||
                                 question_name != "Other") {
-                               
                                 unperfected_answers.push(radioButton);
-                                
                             }
                         }
                     }
                 });
+                 max_point = 0;
               
                 // if none of the buttons in the group is checked, the length is the same
                 if (question_group_num == Array.from(radio_group).length) {
@@ -387,21 +381,28 @@
                 }
             };
         
-        
-          var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
+        if (Array.isArray(unperfected_answers) && unperfected_answers.length > 0) {
+             var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
+
             var unperfected_new = "<p> This feature is under development The following are suggestions for areas of improvement in your AI application </p><ul>";
 
             for (let i = 0; i < unperfected_answers.length; i++) {
                 const question_name = unperfected_answers[i].closest("tr").childNodes[1].textContent.trim();
                 const question_category = unperfected_answers[i].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
-                const answer_type = unperfected_answers[i].closest("label").innerText.trim(); 
-                unperfected_new += "<li>" + question_name + " in section " + question_category + "</li>";
-                
+                const answer_type = unperfected_answers[i].closest("label").innerText.trim();
+                if (answer_type == "") {
+                    unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b></li>";
+                }
+                else {
+                    unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b> currently is answered as <b>" + answer_type + "</b></li>" ;
+                }
             }
             unperfected_new += "</ul>"
             var printed_content = document.getElementById('printed')
-            
+
             printed_content.innerHTML += unperfected_new;
+        }
+         
            
             var modalContent = document.getElementById('unanswered-questions-contents');
             // fill modal contents using the array 
@@ -3804,14 +3805,13 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Benchmark measurements
                         </a>
-
+                    </td>
                         <div id="test1" style="display:none;">
                             <div id="test1-title"> Benchmark measurements</div>
                             <div id="test1-contents">
                                 Comparing AI model output to against a specific set of benchmarks or standard datasets.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3838,6 +3838,7 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Adversarial attack
                         </a>
+                    </td>
 
                         <div id="test2" style="display:none;">
                             <div id="test2-title"> Adversarial attack</div>
@@ -3845,7 +3846,6 @@
                                 Attempting to find and exploit weaknesses to discover flaws.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3873,14 +3873,13 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Auditing
                         </a>
-
+                    </td>
                         <div id="test3" style="display:none;">
                             <div id="test3-title"> Auditing</div>
                             <div id="test3-contents">
                                 Ensuring that the AI application meets standards and regulations.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3907,14 +3906,13 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Field testing
                         </a>
-
+                    </td>
                         <div id="test4" style="display:none;">
                             <div id="test4-title"> Field testing</div>
                             <div id="test4-contents">
                                 Validating model performance under real world operating conditions.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3941,7 +3939,7 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Human evaluation
                         </a>
-
+                        </td>
                         <div id="test5" style="display:none;">
                             <div id="test5-title">Human evaluation</div>
                             <div id="test5-contents">
@@ -3950,7 +3948,6 @@
                                 cultural and ethical considerations.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3977,14 +3974,13 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Other
                         </a>
-
+                    </td>
                         <div id="test6" style="display:none;">
                             <div id="test6-title">Other</div>
                             <div id="test6-contents">
                                 There are many other important performance testing methods.
                             </div>
                         </div>
-                    </td>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -4530,11 +4526,11 @@
         <!-- ========================== -->
         <!-- ======== COMMENT  ======== -->
         <!-- ========================== -->
-        <!--
-        <label for="username"><br>Enter your name (optional for printing):</label>
+
+       <!--<label for="username"><br>Enter your name (optional for printing):</label>
         <input type="text" id="username">
         <br><br>
-        -->
+    -->
         <div id="comment-box" class="col-md-12">
             <h3>Your Notes <i class="far fa-hand-point-left" aria-hidden="true"></i></h3>
             <div class="row">
