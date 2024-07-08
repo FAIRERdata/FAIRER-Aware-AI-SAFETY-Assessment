@@ -270,12 +270,12 @@
 
             total_max = score_list.reduce((a, b) => a + b, 0); // add all points for the grand total
             const admin_no = checklist.querySelector('input[type="radio"][data-answer="no"].admin')
-           
+
             if (admin_no.checked) {
                 total_max -= 4
             }
 
-            let final_score =  Math.round((totalScore / total_max) * 100);
+            let final_score = Math.round((totalScore / total_max) * 100);
             if (final_score > 100) {
                 final_score = 100;
             }
@@ -347,16 +347,16 @@
                     question_point.push(value);
                 });
                 var max_point = Math.max.apply(null, question_point);
-               
+
                 let question_group_num = Array.from(radio_group).length; // number of choices per radio group
-                
+
                 radio_group.forEach(radioButton => {
-                   
+
                     const answer_type = radioButton.closest("label").innerText.trim();
-             
+
                     if (radioButton.checked) {
                         question_group_num -= 1;
-                      
+
                         if (answer_type != "Yes" && max_point != 0 && answer_type != "N/A") {
                             if (question_name != "76%-100% (High)" || question_name != "0-25% (level I, Little to no impact)." ||
                                 question_name != "Other") {
@@ -365,8 +365,8 @@
                         }
                     }
                 });
-                 max_point = 0;
-              
+                max_point = 0;
+
                 // if none of the buttons in the group is checked, the length is the same
                 if (question_group_num == Array.from(radio_group).length) {
 
@@ -380,30 +380,30 @@
                     unanswered.push(question_string); // add the unanswered question onto the array
                 }
             };
-        
-        if (Array.isArray(unperfected_answers) && unperfected_answers.length > 0) {
-             var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
 
-            var unperfected_new = "<p> This feature is under development The following are suggestions for areas of improvement in your AI application </p><ul>";
+            if (Array.isArray(unperfected_answers) && unperfected_answers.length > 0) {
+                var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
 
-            for (let i = 0; i < unperfected_answers.length; i++) {
-                const question_name = unperfected_answers[i].closest("tr").childNodes[1].textContent.trim();
-                const question_category = unperfected_answers[i].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
-                const answer_type = unperfected_answers[i].closest("label").innerText.trim();
-                if (answer_type == "") {
-                    unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b></li>";
+                var unperfected_new = "<p> The following are suggestions for areas of improvement in your AI application </p><ul>";
+
+                for (let i = 0; i < unperfected_answers.length; i++) {
+                    const question_name = unperfected_answers[i].closest("tr").childNodes[1].textContent.trim();
+                    const question_category = unperfected_answers[i].closest("tbody").previousElementSibling.innerText.trim().replace(":", "");
+                    const answer_type = unperfected_answers[i].closest("label").innerText.trim();
+                    if (answer_type == "") {
+                        unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b></li>";
+                    }
+                    else {
+                        unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b> currently is answered as <b>" + answer_type + "</b></li>";
+                    }
                 }
-                else {
-                    unperfected_new += "<li><b>" + question_name + "</b> in section <b>" + question_category + "</b> currently is answered as <b>" + answer_type + "</b></li>" ;
-                }
+                unperfected_new += "</ul>"
+                var printed_content = document.getElementById('printed')
+
+                printed_content.innerHTML += unperfected_new;
             }
-            unperfected_new += "</ul>"
-            var printed_content = document.getElementById('printed')
 
-            printed_content.innerHTML += unperfected_new;
-        }
-         
-           
+
             var modalContent = document.getElementById('unanswered-questions-contents');
             // fill modal contents using the array 
             var new_content = "<p>The following questions are unanswered. If you would still like to print, please press the print button at the bottom of this message.</p><ul>";
@@ -643,8 +643,8 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                        <input type="checkbox" name="checklist7" value="0" onclick="update_checklist()">
-                    </label>
+                            <input type="checkbox" name="checklist7" value="0" onclick="update_checklist()">
+                        </label>
                     </td>
                 </tr>
             </tbody>
@@ -1609,7 +1609,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                        <input type="checkbox" name="checklist31" value="0" onclick="update_checklist()">&nbsp;
+                            <input type="checkbox" name="checklist31" value="0" onclick="update_checklist()">&nbsp;
                         </label>
                     </td>
                 </tr>
@@ -2721,7 +2721,7 @@
                                 onclick="update_checklist()">
                         </label>
 
-                
+
                     </td>
                 </tr>
                 <tr>
@@ -2765,9 +2765,9 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="2"
                                 onclick="update_checklist()">
-                            
+
                         </label>
-                    
+
                     </td>
                 </tr>
 
@@ -2783,8 +2783,8 @@
                         <label>
                             <input type="radio" name="checklist61" class="dl" data-answer="yes" value="1"
                                 onclick="update_checklist()">
-                           </label>
-                 
+                        </label>
+
                     </td>
                 </tr>
                 <tr>
@@ -2799,9 +2799,9 @@
                         <label>
                             <input type="radio" name="checklist61" class="cv" data-answer="yes" value="0"
                                 onclick="update_checklist()">
-                            
+
                         </label>
-                
+
                     </td>
                 </tr>
                 <tr>
@@ -2825,10 +2825,10 @@
                         <label>
                             <input type="radio" name="checklist61" data-answer="yes" value="0"
                                 onclick="update_checklist()">
-                            
-                          
+
+
                         </label>
-                   
+
                     </td>
                 </tr>
                 <tr>
@@ -3245,7 +3245,7 @@
                     <td class="col2">
                         <div></div>
                         <label>
-                        <input type="checkbox" name="checklist76" value="0" onclick="update_checklist()">
+                            <input type="checkbox" name="checklist76" value="0" onclick="update_checklist()">
                         </label>
                     </td>
                 </tr>
@@ -3806,12 +3806,12 @@
                             &nbsp; Benchmark measurements
                         </a>
                     </td>
-                        <div id="test1" style="display:none;">
-                            <div id="test1-title"> Benchmark measurements</div>
-                            <div id="test1-contents">
-                                Comparing AI model output to against a specific set of benchmarks or standard datasets.
-                            </div>
+                    <div id="test1" style="display:none;">
+                        <div id="test1-title"> Benchmark measurements</div>
+                        <div id="test1-contents">
+                            Comparing AI model output to against a specific set of benchmarks or standard datasets.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3840,12 +3840,12 @@
                         </a>
                     </td>
 
-                        <div id="test2" style="display:none;">
-                            <div id="test2-title"> Adversarial attack</div>
-                            <div id="test2-contents">
-                                Attempting to find and exploit weaknesses to discover flaws.
-                            </div>
+                    <div id="test2" style="display:none;">
+                        <div id="test2-title"> Adversarial attack</div>
+                        <div id="test2-contents">
+                            Attempting to find and exploit weaknesses to discover flaws.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3874,12 +3874,12 @@
                             &nbsp; Auditing
                         </a>
                     </td>
-                        <div id="test3" style="display:none;">
-                            <div id="test3-title"> Auditing</div>
-                            <div id="test3-contents">
-                                Ensuring that the AI application meets standards and regulations.
-                            </div>
+                    <div id="test3" style="display:none;">
+                        <div id="test3-title"> Auditing</div>
+                        <div id="test3-contents">
+                            Ensuring that the AI application meets standards and regulations.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3907,12 +3907,12 @@
                             &nbsp; Field testing
                         </a>
                     </td>
-                        <div id="test4" style="display:none;">
-                            <div id="test4-title"> Field testing</div>
-                            <div id="test4-contents">
-                                Validating model performance under real world operating conditions.
-                            </div>
+                    <div id="test4" style="display:none;">
+                        <div id="test4-title"> Field testing</div>
+                        <div id="test4-contents">
+                            Validating model performance under real world operating conditions.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3939,15 +3939,15 @@
                             <span class="pull-left glyphicon glyphicon-info-sign"></span>
                             &nbsp; Human evaluation
                         </a>
-                        </td>
-                        <div id="test5" style="display:none;">
-                            <div id="test5-title">Human evaluation</div>
-                            <div id="test5-contents">
-                                Collecting user feedback on ease of use and satisfaction, understandability and
-                                usefulness of system output, and
-                                cultural and ethical considerations.
-                            </div>
+                    </td>
+                    <div id="test5" style="display:none;">
+                        <div id="test5-title">Human evaluation</div>
+                        <div id="test5-contents">
+                            Collecting user feedback on ease of use and satisfaction, understandability and
+                            usefulness of system output, and
+                            cultural and ethical considerations.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -3975,12 +3975,12 @@
                             &nbsp; Other
                         </a>
                     </td>
-                        <div id="test6" style="display:none;">
-                            <div id="test6-title">Other</div>
-                            <div id="test6-contents">
-                                There are many other important performance testing methods.
-                            </div>
+                    <div id="test6" style="display:none;">
+                        <div id="test6-title">Other</div>
+                        <div id="test6-contents">
+                            There are many other important performance testing methods.
                         </div>
+                    </div>
                     <td class="col2">
                         <div></div>
                         <label>
@@ -4527,7 +4527,7 @@
         <!-- ======== COMMENT  ======== -->
         <!-- ========================== -->
 
-       <!--<label for="username"><br>Enter your name (optional for printing):</label>
+        <!--<label for="username"><br>Enter your name (optional for printing):</label>
         <input type="text" id="username">
         <br><br>
     -->
@@ -5161,7 +5161,7 @@
         <div class="noScreen">
             <div id="unperfected-answers-title">Improvement Suggestions</div>
             <div id="unperfected-answers-contents" class="noScreen">
-        
+
             </div>
         </div>
 
