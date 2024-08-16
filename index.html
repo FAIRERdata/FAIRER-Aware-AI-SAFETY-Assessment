@@ -179,6 +179,7 @@
     <script>
         /* ----------------------------- update_checklist() ----------------------------- */
 
+        // function to get total questions from checklist-table
         function get_total_questions() {
             const checklist = document.getElementById("checklist-table");
             const radioButtons = checklist.querySelectorAll('input[type="radio"], input[type="checkbox"]');
@@ -193,18 +194,21 @@
             return question_set.size;
         }
 
+        // function to update the score at the bottom of the website
         function update_checklist() {
 
-            // Administrative decision-making 
+            // Administrative decision-making, when answering to administrative decision-making the user must complete an
+            // algorithmic impact assessment. If any other choice, completing the algorithmic impact assessment becomes 
+            // bonus points
             const admin_yes = document.querySelector('input[type="radio"][data-answer="yes"].admin')
             const not_completed = document.querySelector('input[type="radio"][data-answer="not_completed"]')
-
+            // If algorithmic impact assessment is not completed, alert the user
             if (not_completed.checked && admin_yes.checked) {
                 alert("Administrative decision-making requires the completion of the Algorithmic Impact Assessment")
                 not_completed.checked = false;
             }
-
-            // Unclicking previous choices when clicking on not tested and vice versa 
+            
+            // Unclicking previous choices when clicking on not tested and vice versa for question 16. This AI application has been tested for model performance using
             const not_tested_list = document.querySelectorAll('input[type="radio"][data-answer="yes"].ntest,input[type="checkbox"].ntest')
             var start = not_tested_list[0].name.replace(/[^0-9]/g, '');
             var end = not_tested_list[not_tested_list.length - 2].name.replace(/[^0-9]/g, '');
@@ -245,9 +249,9 @@
 
             // Loop through radio buttons
             radioButtons.forEach(radioButton => {
-                // Check if the radio button is checked
+                // add name to get total questions
                 question_set.add(radioButton.name);
-
+                // Check if the radio button is checked
                 if (radioButton.checked) {
                     // Add the value of the checked radio button to the total score
                     totalScore += parseInt(radioButton.value);
@@ -258,6 +262,7 @@
             let total_max = 0;
             let max = 0;
             let score_list = [];
+            // loop determines what is the maximum points possible for each question, the maximum score available per question is added to score_list
             for (let i = 1; i <= total_questions; i++) {
                 const radio_group = checklist.querySelectorAll(`input[type="radio"][name="checklist${i}"], input[type="checkbox"][name="checklist${i}"]`);
                 radio_group.forEach(radioButton => {
@@ -267,29 +272,30 @@
                 score_list.push(max) // add the max point choice onto the array
                 max = 0; // reset max
             };
-
+    
             total_max = score_list.reduce((a, b) => a + b, 0); // add all points for the grand total
             const admin_no = checklist.querySelector('input[type="radio"][data-answer="no"].admin')
-
+            // add bonus points if adminstrative decision-making was not checked
             if (admin_no.checked) {
                 total_max -= 4
             }
-
+            // calculate the total score
             let final_score = Math.round((totalScore / total_max) * 100);
             if (final_score > 100) {
                 final_score = 100;
             }
 
-            // Update the total score or perform any other actions with it
+            // update the html to display the current final score
             $("#checklist-score").html("Your use of this AI application is " + final_score + "% safe")
         }
 
-        // 
+        // function to replace modal text 
         function write_to_modal(title, contents, modal_id) {
             $(modal_id + "-title").html(title);
             $(modal_id + "-body").html(contents);
         }
 
+        // function to display modal with corresponding text 
         function show_modal(id_prefix, modal_id) {
             var title = document.getElementById(id_prefix + "-title").textContent;
             var contents = document.getElementById(id_prefix + "-contents").innerHTML;
@@ -302,7 +308,8 @@
             });
         }
 
-
+        // function that alerts the user when they have selected administrative decision-making; however did not select anything for the 
+        // algorithmic impact assessment question, appears when clicking print in the mentioned scenario
         function check_administrative() {
             const admin_yes = document.querySelector('input[type="radio"][data-answer="yes"].admin')
             const algorithmic = document.querySelectorAll('input[type="radio"].admin')
@@ -324,7 +331,7 @@
                 showing all unanswered questions. If the user has answered all questions, directly brings 
                 print popup
 
-            Also tells the user which questions may be improved on 
+            Also tells the user which questions may be improved on (this shows up in the printed page and preview at the end)
         */
         function validate_answers() {
             const clear = check_administrative();
@@ -346,18 +353,20 @@
                     const value = parseInt(radioButton.value); // get value of the radio button in the group
                     question_point.push(value);
                 });
+                // check if the question contributes to the final score (greater than 0 points)
                 var max_point = Math.max.apply(null, question_point);
 
                 let question_group_num = Array.from(radio_group).length; // number of choices per radio group
 
+                // loop through each question group
                 radio_group.forEach(radioButton => {
 
                     const answer_type = radioButton.closest("label").innerText.trim();
 
                     if (radioButton.checked) {
                         question_group_num -= 1;
-
                         if (answer_type != "Yes" && max_point != 0 && answer_type != "N/A") {
+                            // ignores specific cases where "Yes" or "N/A" is not used 
                             if (question_name != "76%-100% (High)" || question_name != "0-25% (level I, Little to no impact)." ||
                                 question_name != "Other") {
                                 unperfected_answers.push(radioButton);
@@ -381,6 +390,7 @@
                 }
             };
 
+            // create html text to show up at the end of print page
             if (Array.isArray(unperfected_answers) && unperfected_answers.length > 0) {
                 var unperfected_modal_content = document.getElementById('unperfected-answers-contents');
 
